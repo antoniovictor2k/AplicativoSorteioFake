@@ -1,8 +1,9 @@
-import React from 'react';
+import {React, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import TelaMenu from './src/TelaMenu';
+import TelaMenu from './src/pages/TelaMenu';
 
-function App() {
+const App = () => {
+
   return (
     <NavigationContainer>
       <TelaMenu />
