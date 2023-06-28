@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     drawerIcon: {
+        fontSize: 18,
         color: "#fff",
     },
     title: {

@@ -1,8 +1,7 @@
 import 'react-native-gesture-handler';
-import {React, useState } from 'react';
+import { React, useState } from 'react';
 import { Text, View, TouchableOpacity, Linking, StyleSheet } from 'react-native';
 import { Button, Avatar, Divider } from 'react-native-paper';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
@@ -10,10 +9,9 @@ import { useNavigation } from '@react-navigation/native';
 // imports de telas
 import styles from '../style/StyleTelaMenu';
 import TelaSorteio from './TelaSorteio';
+import TelaSobre from './TelaSobre';
 
-function TelaSobre() {
-  return <Text>TelaSobre</Text>;
-}
+
 
 function TelaContato() {
   return <Text>TelaContato</Text>;
@@ -36,9 +34,12 @@ function CustomDrawerContent(props) {
 
   return (
     <DrawerContentScrollView style={styles.containerPrincipal}>
-      <View style={{flex:1}}>
+      <View style={{ flex: 1 }}>
         <View style={styles.cabecalho}>
-          <Avatar.Image size={68} source={{ uri: imageUrl }} />
+          <Avatar.Image size={68}
+            source={require('../../assets/SFSorteio.png')}
+            style={{ backgroundColor: 'transparent' }}
+          />
           <View style={styles.cabecalhoText}>
             <Text style={styles.tituloLogo}> SF Sorteio </Text>
           </View>
@@ -61,9 +62,9 @@ function CustomDrawerContent(props) {
             <Text style={styles.linkBold} >Privacidade</Text>
           </Text>
         </View>
-      <View style={styles.developer}>
-        <Text style={styles.developerText}>Dev Antonio Victor</Text>
-      </View>
+        <View style={styles.developer}>
+          <Text style={styles.developerText}>Dev Antonio Victor</Text>
+        </View>
       </View>
     </DrawerContentScrollView>
   );
@@ -85,7 +86,7 @@ function TelaMenu() {
               backgroundColor: '#003150', // Defina a cor de fundo desejada
             },
             drawerLabel: (({ focused }) => <Text style={styles.drawerLabel}>Sorteio</Text>),
-            drawerIcon: (({ focused }) => <Icon style={styles.drawerIcon} name="settings" />),
+            drawerIcon: (({ focused }) => <Icon style={styles.drawerIcon} name="casino" />),
           }
         }
         name="Sorteio" component={TelaSorteio} />
@@ -97,10 +98,10 @@ function TelaMenu() {
               backgroundColor: '#003150', // Defina a cor de fundo desejada
             },
             drawerLabel: (({ focused }) => <Text style={styles.drawerLabel}>Sobre</Text>),
-            drawerIcon: (({ focused }) => <Icon style={styles.drawerIcon} name="settings" />),
+            drawerIcon: (({ focused }) => <Icon style={styles.drawerIcon} name="info" />),
           }
         }
-        name="Sobre" component={TelaContato} />
+        name="Sobre" component={TelaSobre} />
       <Drawer.Screen
         options={
           {
@@ -109,7 +110,7 @@ function TelaMenu() {
               backgroundColor: '#003150', // Defina a cor de fundo desejada
             },
             drawerLabel: (({ focused }) => <Text style={styles.drawerLabel}>Contato</Text>),
-            drawerIcon: (({ focused }) => <Icon style={styles.drawerIcon} name="camera" />),
+            drawerIcon: (({ focused }) => <Icon style={styles.drawerIcon} name="contacts" />),
           }
         }
         name="Contato" component={TelaConfiguracao} />

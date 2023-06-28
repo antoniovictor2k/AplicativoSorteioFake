@@ -5,8 +5,23 @@ const styles = StyleSheet.create({
         backgroundColor: '#38B6FF',
         color: '#fff',
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+    },
+    titulo: {
+        marginTop: 20,
+        fontWeight: 700,
+        fontSize: 20,
+        color: "#000",
+        textAlign: 'center',
+    },
+    text: {
+        textAlign: 'left',
+        marginLeft: 15,
+        marginRight: 15,
+        marginTop: 10,
+        fontWeight: 500,
+        fontSize: 17,
+        marginBottom: 40,
     },
     container: {
         top: -20,
@@ -37,6 +52,7 @@ const styles = StyleSheet.create({
         ,
     },
     dev: {
+        textAlign: 'center',
         color: '#003150',
         bottom: 10,
     },
