@@ -63,10 +63,8 @@ const styles = StyleSheet.create({
     borderColor: '#ff0000',
     borderStyle: 'solid',
     borderWidth: 2,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
+  flex:1,
+    marginBottom:-10,
     alignItems: 'center',
     // backgroundColor: '#fff',
     padding: 10,
@@ -121,7 +119,7 @@ function CustomDrawerContent(props) {
 
   return (
     <DrawerContentScrollView {...props} style={styles.containerPrincipal}>
-      <View>
+      <View style={{flex:1}}>
         <View style={styles.cabecalho}>
           <Avatar.Image size={68} source={{ uri: imageUrl }} />
           <View style={styles.cabecalhoText}>
