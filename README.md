@@ -13,7 +13,7 @@ O aplicativo está sendo desenvolvido com o intuito de proporcionar diversão e 
 # Capturas de Tela (Figma)
 
 ## Tela Sorteio e Tela Sobre
-<img src="/assets/ImgTelasApp/Tela%20-%20Sorteio.png" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="400" height="700"> <img src="/assets/ImgTelasApp/Tela%20-%20Sobre.png" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="400" height="700">
+<img src="/assets/ImgTelasApp/Tela%20-%20Sorteio.png" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="400" height="700"> <img src="/assets/ImgTelasApp/Tela%20-%20Sobre.png" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="400" height="1200">
 
 ## Tela Contato e Tela Menu
 <img src="/assets/ImgTelasApp/Tela%20-%20Contato.png" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="400" height="700"> <img src="/assets/ImgTelasApp/Tela%20-%20Menu.png" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="400" height="700">
