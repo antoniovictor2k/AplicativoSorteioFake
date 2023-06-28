@@ -1,10 +1,10 @@
 # Aplicativo Sorteio Fake
+- Em Desenvolvimento.
 
 ## Descrição
-O Aplicativo Transporte Acadêmico é uma solução inovadora que oferece uma experiência única aos usuários.
+O Aplicativo Sorteio Fake é uma solução inovadora que oferece uma experiência única aos usuários.
 
-O aplicativo está sendo desenvolvido com intuito de ajudar estudantes e funcionários em relação ao transporte escolar, a ideia foi criar um app no qual os mesmos possam compartilhar sua localização com os demais e assim facilitar o acesso ao transporte escolar no local exato através do compartilhamento em tempo real.
-
+O aplicativo está sendo desenvolvido com o intuito de proporcionar diversão e entretenimento aos seus usuários. A ideia por trás do app é simular sorteios de prêmios incríveis, criando uma experiência empolgante para os participantes.
 ## Recursos Principais
 - Recurso 1: Realizar sorteios.
 - Recurso 2: Escolher o ganhador.
