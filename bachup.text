@@ -1,0 +1,44 @@
+import 'react-native-gesture-handler';
+import React from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import { useNavigation } from '@react-navigation/native';
+
+function TelaSobre() {
+  return <Text>TelaSobre</Text>;
+}
+
+function TelaContato() {
+  return <Text>TelaContato</Text>;
+}
+
+function TelaConfiguracao() {
+  return <Text>TelaConfiguracao</Text>;
+}
+
+function CustomDrawerContent(props) {
+  const navigation = useNavigation();
+
+  return (
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props} />
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <Text>Sair</Text>
+      </TouchableOpacity>
+    </DrawerContentScrollView>
+  );
+}
+
+const Drawer = createDrawerNavigator();
+
+function TelaMenu() {
+  return (
+    <Drawer.Navigator initialRouteName="TelaSobre" drawerContent={props => <CustomDrawerContent {...props} />}>
+      <Drawer.Screen name="TelaSobre" component={TelaSobre} />
+      <Drawer.Screen name="TelaContato" component={TelaContato} />
+      <Drawer.Screen name="TelaConfiguracao" component={TelaConfiguracao} />
+    </Drawer.Navigator>
+  );
+}
+
+export default TelaMenu;
