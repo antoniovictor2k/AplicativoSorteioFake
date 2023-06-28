@@ -17,7 +17,7 @@ function TelaSorteio() {
                 <Avatar.Image size={130}
                     source={require('../../assets/SFSorteio.png')}
                     style={{ backgroundColor: 'transparent' }}
-               />
+                />
 
             </View>
 
@@ -45,7 +45,9 @@ function TelaSorteio() {
                 <Button
                     buttonColor="#000"
                     textColor="#fff"
+                    icon={'poker-chip'}
                     style={styles.button}
+                    onPress={()=>{alert("Hello")}}
                 >
 
                     Sorteia
