@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     link: {
-
+        textDecorationLine:'underline',
         color: "#fff"
     },
     linkBold: {

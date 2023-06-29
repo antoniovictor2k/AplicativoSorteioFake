@@ -9,30 +9,42 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     container: {
-        top: -20,
+        marginLeft: 15,
+        marginRight: 15,
         flex: 1,
         backgroundColor: '#38B6FF',
         color: "#fff",
         justifyContent: 'center',
+        alignItems: 'center',
     },
-    ViewImg: {
-        marginTop: 10,
+    viewSorteio: {
+        marginBottom: 30,
+        right: 100
     },
-    textPerguntaInput: {
+    text: {
         fontWeight: 700,
-        fontSize: 18,
-        color: '#000',
-
+        fontSize: 16,
     },
-    textInput: {
-        width: 330,
-        height: 50,
-        backgroundColor: '#38B6FF',
-        borderRadius: 0,
+    textGanhador: {
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 700,
+    },
+    ganhadorResultado: {
+        backgroundColor: '#003150',
+        height: 51,
+        width: 194,
         marginBottom: 10,
+    },
+    butoes: {
+        marginTop: 30,
+    },
+    icon: {
+        left: 282,
     },
     button: {
         height: 40,
+        width: 330,
         borderRadius: 6,
     },
     dev: {

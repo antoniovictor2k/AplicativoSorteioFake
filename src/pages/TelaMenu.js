@@ -11,13 +11,8 @@ import styles from '../style/StyleTelaMenu';
 import TelaSorteio from './TelaSorteio';
 import TelaSobre from './TelaSobre';
 import TelaContato from './TelaContato';
+import TelaResultado from './TelaResultado';
 
-
-
-
-function TelaConfiguracao() {
-  return <Text>TelaConfiguracao</Text>;
-}
 
 
 
@@ -112,6 +107,30 @@ function TelaMenu() {
           }
         }
         name="Contato" component={TelaContato} />
+      <Drawer.Screen
+        options={
+          {
+            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: '#003150', // Defina a cor de fundo desejada
+            },
+            drawerLabel: (({ focused }) => <Text style={styles.drawerLabel}>Resultado</Text>),
+            drawerIcon: (({ focused }) => <Icon style={styles.drawerIcon} name="description" />),
+          }
+        }
+        name="Resultado" component={TelaResultado} />
+      <Drawer.Screen
+        options={
+          {
+            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: '#003150', // Defina a cor de fundo desejada
+            },
+            drawerLabel: (({ focused }) => <Text style={styles.drawerLabel}>Configuração</Text>),
+            drawerIcon: (({ focused }) => <Icon style={styles.drawerIcon} name="settings" />),
+          }
+        }
+        name="Configuração" component={TelaResultado} />
     </Drawer.Navigator>
   );
 }
