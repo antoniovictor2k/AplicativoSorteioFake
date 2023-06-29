@@ -10,12 +10,10 @@ import { useNavigation } from '@react-navigation/native';
 import styles from '../style/StyleTelaMenu';
 import TelaSorteio from './TelaSorteio';
 import TelaSobre from './TelaSobre';
+import TelaContato from './TelaContato';
 
 
 
-function TelaContato() {
-  return <Text>TelaContato</Text>;
-}
 
 function TelaConfiguracao() {
   return <Text>TelaConfiguracao</Text>;
@@ -113,7 +111,7 @@ function TelaMenu() {
             drawerIcon: (({ focused }) => <Icon style={styles.drawerIcon} name="contacts" />),
           }
         }
-        name="Contato" component={TelaConfiguracao} />
+        name="Contato" component={TelaContato} />
     </Drawer.Navigator>
   );
 }
