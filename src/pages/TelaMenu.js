@@ -49,7 +49,7 @@ function CustomDrawerContent(props) {
           <Text
             style={styles.link}
             onPress={() => {
-              Linking.openURL('https://www.youtube.com/watch?v=tmHsL50_zkU');
+              Linking.openURL('https://www.youtube.com');
             }}
           >
             Tutorial de Uso do App, Click Aqui.
