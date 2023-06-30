@@ -12,6 +12,7 @@ import TelaSorteio from './TelaSorteio';
 import TelaSobre from './TelaSobre';
 import TelaContato from './TelaContato';
 import TelaResultado from './TelaResultado';
+import TelaConfiguracao from './TelaConfiguracao';
 
 
 
@@ -130,7 +131,7 @@ function TelaMenu() {
             drawerIcon: (({ focused }) => <Icon style={styles.drawerIcon} name="settings" />),
           }
         }
-        name="Configuração" component={TelaResultado} />
+        name="Configuração" component={TelaConfiguracao} />
     </Drawer.Navigator>
   );
 }
