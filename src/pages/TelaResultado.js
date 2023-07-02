@@ -48,6 +48,7 @@ function TelaResultado() {
                         size={24}
                         icon={'arrow-right-top-bold'}
                         style={styles.icon}
+                        onPress={()=>{alert('Hello Antonio')}}
                     />
                     <Button
                         buttonColor="#000"

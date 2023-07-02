@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#003150',
         height: 51,
         width: 194,
+        borderRadius: 6,
         marginBottom: 10,
     },
     butoes: {

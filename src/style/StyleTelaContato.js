@@ -11,27 +11,31 @@ const styles = StyleSheet.create({
     container: {
         marginLeft: 15,
         marginRight: 15,
-        flexDirection: 'row',
+        marginTop: 30,
+        flexDirection: 'column',
         flex: 1,
         backgroundColor: '#38B6FF',
         color: "#fff",
-        justifyContent: 'center',
-        top: -20,
-        alignItems: 'center',
-
+    },
+    tituloText: {
+        fontSize: 18,
+        fontWeight: 700,
+        color: '#003150',
     },
     viewText: {
+        marginTop: 15,
+        marginBottom: 10,
         alignItems: 'center',
-        gap: 8
     },
     text: {
         fontWeight: 700,
         fontSize: 16,
     },
     viewIcones: {
-        flexDirection: 'column',
-        margin: -7,
-        padding: 0,
+        marginTop: 15,
+        width: 330,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
     },
     viewMaps: {
         top: -100,

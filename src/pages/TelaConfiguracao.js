@@ -131,27 +131,27 @@ function TelaResultado() {
                     </View>
                 </View >
                 <Button
-                        buttonColor="#000"
-                        textColor="#fff"
-                        icon={'content-save-cog'}
-                        style={styles.button}
-                        onPress={() => { alert('OK') }}
-                    >
-                        Guardar dados
-                    </Button>
+                    buttonColor="#000"
+                    textColor="#fff"
+                    icon={'content-save-cog'}
+                    style={styles.button}
+                    onPress={() => { alert('OK') }}
+                >
+                    Guardar dados
+                </Button>
                 <Button
-                        textColor="#003150"
-                        icon={'delete'}
-                        style={styles.button}
-                        onPress={() => { alert('OK') }}
-                    >
-                        Limpar dados
-                    </Button>
-                    
+                    textColor="#003150"
+                    icon={'delete'}
+                    style={styles.button}
+                    onPress={() => { alert('OK') }}
+                >
+                    Limpar dados
+                </Button>
+
             </View>
-                <Text style={styles.dev}>Dev Antonio Victor</Text>
-            </View>
-            )
+            <Text style={styles.dev}>Dev Antonio Victor</Text>
+        </View>
+    )
 }
 
-            export default TelaResultado;
+export default TelaResultado;

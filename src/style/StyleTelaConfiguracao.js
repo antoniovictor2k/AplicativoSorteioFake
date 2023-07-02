@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         color: "#fff",
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom:20,
+        marginBottom: 20,
     },
     viewSorteio: {
         marginBottom: 30,
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     text2: {
         fontWeight: 700,
         fontSize: 16,
+        marginBottom: 5,
     },
     textGanhador: {
         textAlign: 'center',
@@ -41,11 +42,12 @@ const styles = StyleSheet.create({
         fontWeight: 700,
     },
     ganhadorResultado: {
-        marginLeft:15,
-        marginRight:15,
+        marginLeft: 15,
+        marginRight: 15,
         backgroundColor: '#003150',
         height: 45,
         width: 85,
+        borderRadius: 6,
         marginBottom: 10,
     },
     butoes: {
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
     viewBox: {
         marginTop: 10,
         marginBottom: 20,
-        marginRight:105,
+        marginRight: 105,
     },
     flexbox: {
         flexDirection: 'row'
