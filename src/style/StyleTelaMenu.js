@@ -8,9 +8,8 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        padding: 24,
         backgroundColor: '#003150',
-        color: "#fff"
+        color: "#fff",
     },
     cabecalho: {
         marginLeft: 15,
@@ -41,24 +40,16 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     link: {
-        textDecorationLine:'underline',
+        textDecorationLine: 'underline',
         color: "#fff"
     },
     linkBold: {
         fontWeight: 700
     },
-    developer: {
-        borderColor: '#ff0000',
-        borderStyle: 'solid',
-        borderWidth: 2,
-        flex: 1,
-        marginBottom: -10,
-        alignItems: 'center',
-        // backgroundColor: '#fff',
-        padding: 10,
-    },
-    developerText: {
-        color: "#fff"
+    dev: {
+        textAlign: 'center',
+        color: '#38B6FF',
+        bottom: 10,
     },
     drawerLabel: {
         color: "#fff",
@@ -69,18 +60,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: "#fff",
     },
-    title: {
-        marginTop: 16,
-        paddingVertical: 8,
-        borderWidth: 4,
-        borderColor: '#20232a',
-        borderRadius: 6,
-        backgroundColor: '#61dafb',
-        color: '#20232a',
-        textAlign: 'center',
-        fontSize: 30,
-        fontWeight: 'bold',
-    },
+
 });
 
 export default styles;

@@ -27,8 +27,8 @@ function CustomDrawerContent(props) {
 
 
   return (
-    <DrawerContentScrollView style={styles.containerPrincipal}>
-      <View style={{ flex: 1 }}>
+    <DrawerContentScrollView style={styles.containerPrincipal} contentContainerStyle={styles.containerPrincipal}>
+      <View style={styles.container}>
         <View style={styles.cabecalho}>
           <Avatar.Image size={68}
             source={require('../../assets/SFSorteio.png')}
@@ -56,10 +56,8 @@ function CustomDrawerContent(props) {
             <Text style={styles.linkBold} >Privacidade</Text>
           </Text>
         </View>
-        <View style={styles.developer}>
-          <Text style={styles.developerText}>Dev Antonio Victor</Text>
-        </View>
       </View>
+      <Text style={styles.dev}>Dev Antonio Victor</Text>
     </DrawerContentScrollView>
   );
 }
