@@ -24,6 +24,11 @@ const styles = StyleSheet.create({
         color: '#000',
 
     },
+    qtd:{
+        color:'#003150',
+        fontSize:16,
+        fontWeight:600,
+    },
     textInput: {
         width: 330,
         height: 50,

@@ -5,10 +5,24 @@ import { View, ScrollView, Text, Image, Linking } from "react-native";
 import styles from "../style/StyleTelaConfiguracao";
 
 function TelaResultado() {
-    const [checked, setChecked] = useState(false);
+    const [checkboxtodos, setCheckboxTodos] = useState(false);
+    const [checkboxpar, setCheckboxPar] = useState(false);
+    const [checkboximpar, setCheckboxImpar] = useState(false);
+    const [numerosEscolhidos, setNumerosEscolhidos] = useState(null);
 
+    const numerosApenas = (text) => {
+        // Remove qualquer caractere que não seja número
+        const numericValue = text.replace(/[^0-9]/g, '');
+        setNumerosEscolhidos(numericValue);
+    };
 
+    const tema = {
+        colors: {
 
+            onSurfaceVariant: 'white'
+        }
+    };
+    console.log(numerosEscolhidos);
     return (
         <View style={styles.containerPrincipal}>
             <View style={styles.container}>
@@ -59,10 +73,15 @@ function TelaResultado() {
                     <TextInput
                         label={'Numero(s) Premiado(s)'}
                         textColor="#fff"
+                        value={numerosEscolhidos}
                         selectionColor="#fff"
                         right={<TextInput.Icon icon="keyboard" color={'#fff'} />}
                         activeUnderlineColor="#fff"
+                        theme={tema}
                         style={styles.textInput}
+                        onChangeText={numerosApenas}
+                        keyboardType="numeric"
+                        maxLength={10}
                     />
                     <Button
                         buttonColor="#000"
@@ -92,9 +111,9 @@ function TelaResultado() {
                     <View style={styles.flexbox}>
 
                         <Checkbox
-                            status={checked ? 'checked' : 'unchecked'}
+                            status={checkboxtodos ? 'checked' : 'unchecked'}
                             onPress={() => {
-                                setChecked(!checked);
+                                setCheckboxTodos(!checkboxtodos);
                             }}
                             uncheckedColor="#003150"
                             color="#003150"
@@ -105,9 +124,9 @@ function TelaResultado() {
                     </View>
                     <View style={styles.flexbox}>
                         <Checkbox
-                            status={checked ? 'checked' : 'unchecked'}
+                            status={checkboxpar ? 'checked' : 'unchecked'}
                             onPress={() => {
-                                setChecked(!checked);
+                                setCheckboxPar(!checkboxpar);
                             }}
                             uncheckedColor="#003150"
                             color="#003150"
@@ -118,9 +137,9 @@ function TelaResultado() {
                     </View>
                     <View style={styles.flexbox}>
                         <Checkbox
-                            status={checked ? 'checked' : 'unchecked'}
+                            status={checkboximpar ? 'checked' : 'unchecked'}
                             onPress={() => {
-                                setChecked(!checked);
+                                setCheckboxImpar(!checkboximpar);
                             }}
                             uncheckedColor="#003150"
                             color="#003150"
