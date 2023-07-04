@@ -36,22 +36,19 @@ function TelaSorteio() {
     };
 
 
-    const handleDraw = () => {
-        const targetCount = 5; // Número de ganhadores desejados
-        const maxNumber = 100; // Maior número do sorteio
-        const targetNumbers = new Set();
+    function handleDraw () {
+        const targetNumber = 15; // Número desejado para o sorteio
+        let randomNumber;
+        
+        do {
+          randomNumber = Math.floor(Math.random() * qtdNumeros) + 1; // Gera um número aleatório entre 1 e 5
+        } while (randomNumber !== targetNumber);
+    
+        setResultadoSorteio(randomNumber);
+      };
+    
 
-        let iterations = 0;
-        while (targetNumbers.size < targetCount && iterations < maxNumber * 10) {
-            const randomNumber = Math.floor(Math.random() * maxNumber) + 1;
-            targetNumbers.add(randomNumber);
-            iterations++;
-        }
-
-        setWinners(Array.from(targetNumbers));
-    };
-
-
+console.log('Ganhador ' + resultadoSorteio);
 
 
 
