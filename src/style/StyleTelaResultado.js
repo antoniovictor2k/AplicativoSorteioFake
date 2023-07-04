@@ -18,27 +18,32 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     viewSorteio: {
-        marginBottom: 30,
-        right: 100
+        marginTop: 30,
+        right: 50
     },
     text: {
         fontWeight: 700,
-        fontSize: 16,
+        fontSize: 18,
+        color: '#003150'
     },
     textGanhador: {
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 24,
         fontWeight: 700,
+        marginBottom: 10,
     },
     ganhadorResultado: {
         backgroundColor: '#003150',
-        height: 51,
-        width: 194,
-        borderRadius: 6,
-        marginBottom: 10,
+        height: 100,
+        width: 300,
+        borderRadius: 20,
+        marginBottom: 50,
+        borderColor: '#fff',
+        borderStyle: 'solid',
+        borderWidth: 2,
     },
     butoes: {
-        marginTop: 30,
+        marginTop: 50,
     },
     icon: {
         left: 282,

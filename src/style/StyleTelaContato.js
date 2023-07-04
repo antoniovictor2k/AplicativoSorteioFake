@@ -21,28 +21,28 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 700,
         color: '#003150',
+        marginBottom: 15
     },
     viewText: {
-        marginTop: 15,
-        marginBottom: 10,
+        marginBottom: 15,
         alignItems: 'center',
+        backgroundColor: '#003150',
+        padding: 12,
+        borderRadius: 6,
     },
     text: {
+        color: "#fff",
         fontWeight: 700,
         fontSize: 16,
     },
     viewIcones: {
-        marginTop: 15,
         width: 330,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-    },
-    viewMaps: {
-        top: -100,
-        marginBottom: 30,
-        width: 330,
-        height: 270,
-        borderRadius: 10,
+        backgroundColor: '#003150',
+        padding: 6,
+        borderRadius: 6,
+        marginBottom: -12,
     },
     dev: {
         color: '#003150',

@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     container: {
-        top: -20,
         flex: 1,
         backgroundColor: '#38B6FF',
         color: "#fff",
@@ -18,16 +17,22 @@ const styles = StyleSheet.create({
     ViewImg: {
         marginTop: 10,
     },
+    viewTitulo: {
+        alignItems: 'center',
+    },
+    titulo: {
+        fontSize: 16,
+    },
     textPerguntaInput: {
         fontWeight: 700,
         fontSize: 18,
         color: '#000',
 
     },
-    qtd:{
-        color:'#003150',
-        fontSize:16,
-        fontWeight:600,
+    qtd: {
+        color: '#003150',
+        fontSize: 16,
+        fontWeight: 600,
     },
     textInput: {
         width: 330,

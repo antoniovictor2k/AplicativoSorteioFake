@@ -29,25 +29,25 @@ function TelaContato() {
 
                     <IconButton
                         icon="email"
-                        iconColor={'#000'}
+                        iconColor={'#fff'}
                         size={30}
                         onPress={() => Linking.openURL('mailto:avitor266@gmail.com')}
                     />
                     <IconButton
                         icon="whatsapp"
-                        iconColor={'#000'}
+                        iconColor={'#fff'}
                         size={30}
                         onPress={() => Linking.openURL('https://wa.me/message/O4I654ATQMPYE1')}
                     />
                     <IconButton
                         icon="instagram"
-                        iconColor={'#000'}
+                        iconColor={'#fff'}
                         size={30}
                         onPress={() => Linking.openURL('https://www.instagram.com/antoniovictor2k/')}
                     />
                     <IconButton
                         icon="facebook"
-                        iconColor={'#000'}
+                        iconColor={'#fff'}
                         size={30}
                         onPress={() => Linking.openURL('https://www.facebook.com/antonio.vitor.7524')}
                     />
@@ -56,25 +56,25 @@ function TelaContato() {
                 <View style={styles.viewIcones}>
                     <IconButton
                         icon="linkedin"
-                        iconColor={'#000'}
+                        iconColor={'#fff'}
                         size={30}
                         onPress={() => Linking.openURL('https://www.linkedin.com/in/antonio-victor-pereira-severiano-0aa170169/')}
                     />
                     <IconButton
                         icon="github"
-                        iconColor={'#000'}
+                        iconColor={'#fff'}
                         size={30}
                         onPress={() => Linking.openURL('https://github.com/antoniovictor2k')}
                     />
                     <IconButton
                         icon="youtube"
-                        iconColor={'#000'}
+                        iconColor={'#fff'}
                         size={30}
                         onPress={() => Linking.openURL('https://youtube.com')}
                     />
                     <IconButton
                         icon="twitter"
-                        iconColor={'#000'}
+                        iconColor={'#fff'}
                         size={30}
                         onPress={() => Linking.openURL('https://twitter.com/')}
                     />

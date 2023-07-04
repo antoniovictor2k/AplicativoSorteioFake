@@ -7,38 +7,18 @@ import styles from "../style/StyleTelaResultado";
 function TelaResultado() {
     return (
         <View style={styles.containerPrincipal}>
+            <View style={styles.viewSorteio}>
+                <Text style={styles.text}>De 1 a 1000</Text>
+                <Text style={styles.text}>Foram sorteados 999 números</Text>
+            </View>
             <View style={styles.container}>
-                <View style={styles.viewSorteio}>
-                    <Text style={styles.text}>De 1 a 1000</Text>
-                    <Text style={styles.text}>Foram 999 numeros</Text>
-                </View>
 
                 <View style={styles.viewGanhador}>
-                    <Text style={styles.textGanhador}>1º Ganhador</Text>
+                    <Text style={styles.textGanhador}>Ganhador</Text>
                     <Badge
                         size={50}
                         style={styles.ganhadorResultado}
                     >1354021</Badge>
-                    <Text style={styles.textGanhador}>2º Ganhador</Text>
-                    <Badge
-                        size={50}
-                        style={styles.ganhadorResultado}
-                    >454545</Badge>
-                    <Text style={styles.textGanhador}>3º Ganhador</Text>
-                    <Badge
-                        size={50}
-                        style={styles.ganhadorResultado}
-                    >102</Badge>
-                    <Text style={styles.textGanhador}>4º Ganhador</Text>
-                    <Badge
-                        size={50}
-                        style={styles.ganhadorResultado}
-                    >15487</Badge>
-                    <Text style={styles.textGanhador}>5º Ganhador</Text>
-                    <Badge
-                        size={50}
-                        style={styles.ganhadorResultado}
-                    >54</Badge>
                 </View>
 
                 <View style={styles.butoes}>
@@ -48,7 +28,7 @@ function TelaResultado() {
                         size={24}
                         icon={'arrow-right-top-bold'}
                         style={styles.icon}
-                        onPress={()=>{alert('Hello Antonio')}}
+                        onPress={() => { alert('Hello Antonio') }}
                     />
                     <Button
                         buttonColor="#000"

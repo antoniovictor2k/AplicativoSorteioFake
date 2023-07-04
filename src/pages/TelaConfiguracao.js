@@ -22,56 +22,20 @@ function TelaResultado() {
             onSurfaceVariant: 'white'
         }
     };
-    console.log(numerosEscolhidos);
     return (
         <View style={styles.containerPrincipal}>
+            <View style={styles.viewSorteio}>
+                <Text style={styles.text}>Escolhar como desejar sortear</Text>
+            </View>
             <View style={styles.container}>
-                <View style={styles.viewSorteio}>
-                    <Text style={styles.text}>Numero(s) escolhido(s):</Text>
-                </View>
 
                 <View style={styles.viewGanhador}>
-                    <View>
-                        <Text style={styles.textGanhador}>1º Numero</Text>
-                        <Badge
-                            size={28}
-                            style={styles.ganhadorResultado}
-                        >1354021</Badge>
-                    </View>
-                    <View>
-                        <Text style={styles.textGanhador}>2º Numero</Text>
-                        <Badge
-                            size={28}
-                            style={styles.ganhadorResultado}
-                        >454545</Badge>
-                    </View>
-                    <View>
-                        <Text style={styles.textGanhador}>3º Numero</Text>
-                        <Badge
-                            size={28}
-                            style={styles.ganhadorResultado}
-                        >102</Badge>
-                    </View>
-                    <View>
-                        <Text style={styles.textGanhador}>4º Numero</Text>
-                        <Badge
-                            size={28}
-                            style={styles.ganhadorResultado}
-                        >15487</Badge>
-                    </View>
-                    <View>
-                        <Text style={styles.textGanhador}>5º Numero</Text>
-                        <Badge
-                            size={28}
-                            style={styles.ganhadorResultado}
-                        >54</Badge>
-                    </View>
                 </View>
 
                 <View style={styles.butoes}>
-                    <Text style={styles.text2}>Escolhar o(s) numero(s):</Text>
+                    <Text style={styles.text2}>Por número:</Text>
                     <TextInput
-                        label={'Numero(s) Premiado(s)'}
+                        label={'Escolhar o número'}
                         textColor="#fff"
                         value={numerosEscolhidos}
                         selectionColor="#fff"
@@ -83,15 +47,8 @@ function TelaResultado() {
                         keyboardType="numeric"
                         maxLength={10}
                     />
-                    <Button
-                        buttonColor="#000"
-                        textColor="#fff"
-                        icon={'plus-box-multiple'}
-                        style={styles.button}
-                        onPress={() => { alert('OK') }}
-                    >
-                        Adicionar
-                    </Button>
+                    <Text style={styles.text3}>Exemplo: o sorteio irá parar no número escolhido e ele será o ganhador.</Text>
+                    <Text style={styles.text3}>Número escolhido: {numerosEscolhidos}</Text>
                 </View>
                 <View style={styles.viewDivider}>
                     <Text style={styles.textDivider}>

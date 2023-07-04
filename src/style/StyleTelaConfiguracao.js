@@ -19,20 +19,26 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     viewSorteio: {
+        marginTop:30,
         marginBottom: 30,
-        right: 55,
+        right: 35,
     },
     viewGanhador: {
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        flexWrap: 'wrap',
+        flexDirection: 'column',
     },
     text: {
         fontWeight: 700,
         fontSize: 20,
+        color:'#003150',
     },
     text2: {
         fontWeight: 700,
+        fontSize: 16,
+        marginBottom: 5,
+    },
+    text3: {
+        width:330,
+        fontWeight: 400,
         fontSize: 16,
         marginBottom: 5,
     },
@@ -81,6 +87,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     textBox: {
+        fontWeight:700,
         fontSize: 18,
         marginTop: 4,
         marginLeft: 0,
