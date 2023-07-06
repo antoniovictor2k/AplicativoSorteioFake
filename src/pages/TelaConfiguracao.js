@@ -22,6 +22,45 @@ function TelaResultado() {
             onSurfaceVariant: 'white'
         }
     };
+
+    const handleCheckboxTodos = () => {
+        setCheckboxTodos(true);
+        setCheckboxPar(false);
+        setCheckboxImpar(false);
+      };
+      
+      const handleCheckboxPar = () => {
+        setCheckboxTodos(false);
+        setCheckboxPar(true);
+        setCheckboxImpar(false);
+      };
+      
+      const handleCheckboxImpar = () => {
+        setCheckboxTodos(false);
+        setCheckboxPar(false);
+        setCheckboxImpar(true);
+      };
+
+
+ function funcaoBreakNumero () {
+        const breakNumero = 50; // Número desejado para o sorteio
+        let guardarNumero;
+        
+        do {
+
+          guardarNumero = Math.floor(Math.random() * 100); // Gera um número aleatório entre 1 e 5
+
+
+
+        }   while ( guardarNumero % 2 === 0);
+    
+        console.log(guardarNumero);
+      };
+    
+
+
+
+
     return (
         <View style={styles.containerPrincipal}>
             <View style={styles.viewSorteio}>
@@ -65,12 +104,12 @@ function TelaResultado() {
                 </View>
 
                 <View style={styles.viewBox}>
-                    <View style={styles.flexbox}>
+                    <View style={styles.flexbox} >
 
                         <Checkbox
                             status={checkboxtodos ? 'checked' : 'unchecked'}
                             onPress={() => {
-                                setCheckboxTodos(!checkboxtodos);
+                                handleCheckboxTodos();
                             }}
                             uncheckedColor="#003150"
                             color="#003150"
@@ -83,7 +122,7 @@ function TelaResultado() {
                         <Checkbox
                             status={checkboxpar ? 'checked' : 'unchecked'}
                             onPress={() => {
-                                setCheckboxPar(!checkboxpar);
+                                handleCheckboxPar();
                             }}
                             uncheckedColor="#003150"
                             color="#003150"
@@ -96,7 +135,7 @@ function TelaResultado() {
                         <Checkbox
                             status={checkboximpar ? 'checked' : 'unchecked'}
                             onPress={() => {
-                                setCheckboxImpar(!checkboximpar);
+                                handleCheckboxImpar();
                             }}
                             uncheckedColor="#003150"
                             color="#003150"
@@ -119,7 +158,7 @@ function TelaResultado() {
                     textColor="#003150"
                     icon={'delete'}
                     style={styles.button}
-                    onPress={() => { alert('OK') }}
+                    onPress={funcaoBreakNumero}
                 >
                     Limpar dados
                 </Button>

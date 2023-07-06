@@ -37,7 +37,7 @@ function TelaSorteio() {
 
 
     function handleDraw () {
-        const targetNumber = 15; // Número desejado para o sorteio
+        const targetNumber = 165; // Número desejado para o sorteio
         let randomNumber;
         
         do {
