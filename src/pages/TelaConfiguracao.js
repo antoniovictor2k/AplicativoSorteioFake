@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { TextInput, Button, Avatar, IconButton, Badge, Divider, Checkbox } from "react-native-paper";
-import { View, ScrollView, Text, Image, Linking } from "react-native";
+import { View, ScrollView, Text, Image, Linking, Alert } from "react-native";
 
 import styles from "../style/StyleTelaConfiguracao";
 
@@ -10,6 +10,7 @@ function TelaResultado() {
     const [checkboxpar, setCheckboxPar] = useState(false);
     const [checkboximpar, setCheckboxImpar] = useState(false);
     const [numerosEscolhidos, setNumerosEscolhidos] = useState(null);
+    const [qtddeNumeros, setQtddeNumeros] = useState(100);
 
     const numerosApenas = (text) => {
         // Remove qualquer caractere que não seja número
@@ -55,13 +56,89 @@ function TelaResultado() {
     };
 
 
-    function funcaoBreakNumero() {
-        const breakNumero = 50; // Número desejado para o sorteio
+    function selectIfEscolharSorteio() {
+
+        if (checkboxPorNumero === true) {
+            if (numerosEscolhidos === null || numerosEscolhidos === "") {
+                Alert.alert('Preenchimento Obrigatório!', 'Campus "Escolhar o número" não foi preenchido.', [
+                    { text: 'preencher', style: 'cancel' },
+                ]);
+                return;
+            }
+
+            console.log("Verificação passou Por Número");
+            sortearSomentePeloNumero();
+
+        }
+        else if (checkboxtodos === true) {
+            console.log("Verificação passou Todos");
+            sortearTodosNumeros();
+        }
+        else if (checkboxpar === true) {
+            console.log("Verificação passou Par");
+            sortearSomenteNumeroPar();
+        }
+        else if (checkboximpar === true) {
+            console.log("Verificação passou Impar");
+            sortearSomenteNumeroImpar();
+        }
+        else {
+            console.log("verificação não passou ou nenhum checkbox true!")
+        }
+    }
+
+    
+    
+    function sortearSomentePeloNumero() {
+        const breakNumero = parseInt(numerosEscolhidos); // Converter para número inteiro
+        let guardarNumero;
+        
+        if (breakNumero > qtddeNumeros) {
+            Alert.alert('Escolhar um número menor!','No campus "Escolhar o número" Escolhar um número que seja menor que a quantidade de números do sorteio.', [
+                { text: 'preencher', style: 'cancel' },
+            ]);
+            return;
+        }
+
+        do {
+
+            guardarNumero = Math.floor(Math.random() * 100) + 1; // Gera um número aleatório entre 1 e 100.
+           
+        } while (guardarNumero !== breakNumero);
+
+        console.log(guardarNumero);
+    };
+
+
+
+    function sortearTodosNumeros() {
+        let guardarNumero;
+
+        guardarNumero = Math.floor(Math.random() * qtddeNumeros) + 1; // Gera um número aleatório entre 1 e quantidade escolhida.
+
+        console.log(guardarNumero);
+    };
+
+    function sortearSomenteNumeroPar() {
         let guardarNumero;
 
         do {
 
-            guardarNumero = Math.floor(Math.random() * 100) + 1; // Gera um número aleatório entre 1 e 5
+            guardarNumero = Math.floor(Math.random() * qtddeNumeros) + 1; // Gera um número aleatório entre 1 e quantidade escolhida.
+
+
+
+        } while (guardarNumero % 2 === 1);
+
+        console.log(guardarNumero);
+    };
+
+    function sortearSomenteNumeroImpar() {
+        let guardarNumero;
+
+        do {
+
+            guardarNumero = Math.floor(Math.random() * qtddeNumeros) + 1; // Gera um número aleatório entre 1 e quantidade escolhida.
 
 
 
@@ -71,11 +148,24 @@ function TelaResultado() {
     };
 
 
+    // limpar dados, irá alterar todos os checkBox para false e deixa null o campo escolhar numero.
+
+    function limparDados() {
+
+        setNumerosEscolhidos(null);
+        setCheckboxPorNumero(false);
+        setCheckboxTodos(false);
+        setCheckboxPar(false);
+        setCheckboxImpar(false);
+    };
+
+
+
 
 
 
     return (
-        <ScrollView style={styles.containerPrincipal}>
+        <ScrollView style={styles.containerPrincipal} keyboardShouldPersistTaps='handled'>
             <View style={styles.viewSorteio}>
                 <Text style={styles.text}>Escolhar como desejar sortear</Text>
             </View>
@@ -177,7 +267,7 @@ function TelaResultado() {
                     textColor="#fff"
                     icon={'content-save-cog'}
                     style={styles.button}
-                    onPress={() => { alert('OK') }}
+                    onPress={selectIfEscolharSorteio}
                 >
                     Guardar dados
                 </Button>
@@ -186,7 +276,7 @@ function TelaResultado() {
                     textColor="#003150"
                     icon={'delete'}
                     style={styles.button}
-                    onPress={funcaoBreakNumero}
+                    onPress={limparDados}
                 >
                     Limpar dados
                 </Button>
