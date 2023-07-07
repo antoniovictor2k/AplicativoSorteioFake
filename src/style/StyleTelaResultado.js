@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     text: {
         fontWeight: 700,
         fontSize: 18,
-        color: '#003150'
+        color: '#000'
     },
     textGanhador: {
         textAlign: 'center',

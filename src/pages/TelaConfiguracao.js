@@ -5,6 +5,7 @@ import { View, ScrollView, Text, Image, Linking } from "react-native";
 import styles from "../style/StyleTelaConfiguracao";
 
 function TelaResultado() {
+    const [checkboxPorNumero, setCheckboxPorNumero] = useState(false);
     const [checkboxtodos, setCheckboxTodos] = useState(false);
     const [checkboxpar, setCheckboxPar] = useState(false);
     const [checkboximpar, setCheckboxImpar] = useState(false);
@@ -27,42 +28,54 @@ function TelaResultado() {
         setCheckboxTodos(true);
         setCheckboxPar(false);
         setCheckboxImpar(false);
-      };
-      
-      const handleCheckboxPar = () => {
+        setCheckboxPorNumero(false);
+
+    };
+
+    const handleCheckboxPar = () => {
         setCheckboxTodos(false);
         setCheckboxPar(true);
         setCheckboxImpar(false);
-      };
-      
-      const handleCheckboxImpar = () => {
+        setCheckboxPorNumero(false);
+
+    };
+
+    const handleCheckboxImpar = () => {
         setCheckboxTodos(false);
         setCheckboxPar(false);
         setCheckboxImpar(true);
-      };
+        setCheckboxPorNumero(false);
+
+    };
+    const handleCheckboxPorNumero = () => {
+        setCheckboxTodos(false);
+        setCheckboxPar(false);
+        setCheckboxImpar(false);
+        setCheckboxPorNumero(true);
+    };
 
 
- function funcaoBreakNumero () {
+    function funcaoBreakNumero() {
         const breakNumero = 50; // Número desejado para o sorteio
         let guardarNumero;
-        
+
         do {
 
-          guardarNumero = Math.floor(Math.random() * 100); // Gera um número aleatório entre 1 e 5
+            guardarNumero = Math.floor(Math.random() * 100) + 1; // Gera um número aleatório entre 1 e 5
 
 
 
-        }   while ( guardarNumero % 2 === 0);
-    
+        } while (guardarNumero % 2 === 0);
+
         console.log(guardarNumero);
-      };
-    
+    };
+
 
 
 
 
     return (
-        <View style={styles.containerPrincipal}>
+        <ScrollView style={styles.containerPrincipal}>
             <View style={styles.viewSorteio}>
                 <Text style={styles.text}>Escolhar como desejar sortear</Text>
             </View>
@@ -71,8 +84,21 @@ function TelaResultado() {
                 <View style={styles.viewGanhador}>
                 </View>
 
-                <View style={styles.butoes}>
-                    <Text style={styles.text2}>Por número:</Text>
+                <View style={styles.viewCard}>
+                    <View style={styles.flexbox} >
+
+                        <Checkbox
+                            status={checkboxPorNumero ? 'checked' : 'unchecked'}
+                            onPress={() => {
+                                handleCheckboxPorNumero();
+                            }}
+                            uncheckedColor="#fff"
+                            color="#fff"
+                        />
+                        <Text style={styles.textBox}>
+                            Somente pelo número:
+                        </Text>
+                    </View>
                     <TextInput
                         label={'Escolhar o número'}
                         textColor="#fff"
@@ -86,65 +112,66 @@ function TelaResultado() {
                         keyboardType="numeric"
                         maxLength={10}
                     />
-                    <Text style={styles.text3}>Exemplo: o sorteio irá parar no número escolhido e ele será o ganhador.</Text>
-                    <Text style={styles.text3}>Número escolhido: {numerosEscolhidos}</Text>
-                </View>
-                <View style={styles.viewDivider}>
-                    <Text style={styles.textDivider}>
-                        <Divider
-                            style={styles.divider}
-                            bold={true}
-                        />
-                        OU
-                        <Divider
-                            style={styles.divider}
-                            bold={true}
-                        />
-                    </Text>
+                    <Text style={styles.text3}>Ex: o sorteio irá parar no número escolhido e ele será o ganhador.</Text>
+                    <Text style={styles.text3}>Número escolhido: <Text style={{ color: '#38B6FF', fontWeight: 700 }}>{numerosEscolhidos}</Text></Text>
                 </View>
 
                 <View style={styles.viewBox}>
-                    <View style={styles.flexbox} >
 
-                        <Checkbox
-                            status={checkboxtodos ? 'checked' : 'unchecked'}
-                            onPress={() => {
-                                handleCheckboxTodos();
-                            }}
-                            uncheckedColor="#003150"
-                            color="#003150"
-                        />
-                        <Text style={styles.textBox}>
-                            Todos os numeros.
-                        </Text>
+                    <View style={styles.viewCard}>
+                        <View style={styles.flexbox} >
+
+                            <Checkbox
+                                status={checkboxtodos ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    handleCheckboxTodos();
+                                }}
+                                uncheckedColor="#fff"
+                                color="#fff"
+                            />
+                            <Text style={styles.textBox}>
+                                Todos os numeros.
+                            </Text>
+                        </View>
+                        <Text style={styles.text3}>Ex: o sorteio será padrão, todos participando.</Text>
                     </View>
-                    <View style={styles.flexbox}>
-                        <Checkbox
-                            status={checkboxpar ? 'checked' : 'unchecked'}
-                            onPress={() => {
-                                handleCheckboxPar();
-                            }}
-                            uncheckedColor="#003150"
-                            color="#003150"
-                        />
-                        <Text style={styles.textBox}>
-                            Somente numeros par.
-                        </Text>
+
+                    <View style={styles.viewCard}>
+
+                        <View style={styles.flexbox}>
+                            <Checkbox
+                                status={checkboxpar ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    handleCheckboxPar();
+                                }}
+                                uncheckedColor="#fff"
+                                color="#fff"
+                            />
+                            <Text style={styles.textBox}>
+                                Somente numeros par.
+                            </Text>
+                        </View>
+                        <Text style={styles.text3}>Ex: o sorteio será somente com número par.</Text>
                     </View>
-                    <View style={styles.flexbox}>
-                        <Checkbox
-                            status={checkboximpar ? 'checked' : 'unchecked'}
-                            onPress={() => {
-                                handleCheckboxImpar();
-                            }}
-                            uncheckedColor="#003150"
-                            color="#003150"
-                        />
-                        <Text style={styles.textBox}>
-                            Somente numeros ímpar.
-                        </Text>
-                    </View>
-                </View >
+                    <View style={styles.viewCard}>
+
+                        <View style={styles.flexbox}>
+                            <Checkbox
+                                status={checkboximpar ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    handleCheckboxImpar();
+                                }}
+                                uncheckedColor="#fff"
+                                color="#fff"
+                            />
+                            <Text style={styles.textBox}>
+                                Somente numeros ímpar.
+                            </Text>
+                        </View>
+                        <Text style={styles.text3}>Ex: o sorteio será somente com número ímpar.</Text>
+                    </View >
+                </View>
+
                 <Button
                     buttonColor="#000"
                     textColor="#fff"
@@ -154,6 +181,7 @@ function TelaResultado() {
                 >
                     Guardar dados
                 </Button>
+
                 <Button
                     textColor="#003150"
                     icon={'delete'}
@@ -165,7 +193,7 @@ function TelaResultado() {
 
             </View>
             <Text style={styles.dev}>Dev Antonio Victor</Text>
-        </View>
+        </ScrollView>
     )
 }
 
