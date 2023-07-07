@@ -112,7 +112,7 @@ function TelaResultado() {
                         keyboardType="numeric"
                         maxLength={10}
                     />
-                    <Text style={styles.text3}>Ex: o sorteio irá parar no número escolhido e ele será o ganhador.</Text>
+                    <Text style={styles.text3}>Ex: o sorteio irá parar no número escolhido.</Text>
                     <Text style={styles.text3}>Número escolhido: <Text style={{ color: '#38B6FF', fontWeight: 700 }}>{numerosEscolhidos}</Text></Text>
                 </View>
 
@@ -130,7 +130,7 @@ function TelaResultado() {
                                 color="#fff"
                             />
                             <Text style={styles.textBox}>
-                                Todos os numeros.
+                                Todos os números.
                             </Text>
                         </View>
                         <Text style={styles.text3}>Ex: o sorteio será padrão, todos participando.</Text>
@@ -148,7 +148,7 @@ function TelaResultado() {
                                 color="#fff"
                             />
                             <Text style={styles.textBox}>
-                                Somente numeros par.
+                                Somente números par.
                             </Text>
                         </View>
                         <Text style={styles.text3}>Ex: o sorteio será somente com número par.</Text>
@@ -165,7 +165,7 @@ function TelaResultado() {
                                 color="#fff"
                             />
                             <Text style={styles.textBox}>
-                                Somente numeros ímpar.
+                                Somente números ímpar.
                             </Text>
                         </View>
                         <Text style={styles.text3}>Ex: o sorteio será somente com número ímpar.</Text>
