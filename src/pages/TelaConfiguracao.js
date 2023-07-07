@@ -12,6 +12,8 @@ function TelaResultado() {
     const [numerosEscolhidos, setNumerosEscolhidos] = useState(null);
     const [qtddeNumeros, setQtddeNumeros] = useState(100);
 
+    console.log("Dev Antonio");
+
     const numerosApenas = (text) => {
         // Remove qualquer caractere que não seja número
         const numericValue = text.replace(/[^0-9]/g, '');
