@@ -5,8 +5,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#38B6FF',
         color: '#fff',
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     container: {
         marginLeft: 15,
@@ -19,7 +17,7 @@ const styles = StyleSheet.create({
     },
     viewSorteio: {
         marginTop: 30,
-        right: 50
+        marginLeft:15,
     },
     text: {
         fontWeight: 700,
@@ -56,6 +54,7 @@ const styles = StyleSheet.create({
     dev: {
         color: '#003150',
         bottom: 10,
+        textAlign: 'center',
     },
 });
 

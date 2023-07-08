@@ -4,20 +4,18 @@ import { View, ScrollView, Text, Image, Linking, Alert } from "react-native";
 
 import styles from "../style/StyleTelaConfiguracao";
 
-function TelaResultado() {
+function TelaResultado({ navigation }) {
+    const [checkboxtodos, setCheckboxTodos] = useState(true);
     const [checkboxPorNumero, setCheckboxPorNumero] = useState(false);
-    const [checkboxtodos, setCheckboxTodos] = useState(false);
     const [checkboxpar, setCheckboxPar] = useState(false);
     const [checkboximpar, setCheckboxImpar] = useState(false);
-    const [numerosEscolhidos, setNumerosEscolhidos] = useState(null);
-    const [qtddeNumeros, setQtddeNumeros] = useState(100);
-
-    console.log("Dev Antonio");
+    const [numeroEscolhido, setNumeroEscolhido] = useState(null);
+    const [qtdNumeros, setQtdNumeros] = useState(100);
 
     const numerosApenas = (text) => {
         // Remove qualquer caractere que não seja número
         const numericValue = text.replace(/[^0-9]/g, '');
-        setNumerosEscolhidos(numericValue);
+        setNumeroEscolhido(numericValue);
     };
 
     const tema = {
@@ -32,7 +30,6 @@ function TelaResultado() {
         setCheckboxPar(false);
         setCheckboxImpar(false);
         setCheckboxPorNumero(false);
-
     };
 
     const handleCheckboxPar = () => {
@@ -40,7 +37,6 @@ function TelaResultado() {
         setCheckboxPar(true);
         setCheckboxImpar(false);
         setCheckboxPorNumero(false);
-
     };
 
     const handleCheckboxImpar = () => {
@@ -48,7 +44,6 @@ function TelaResultado() {
         setCheckboxPar(false);
         setCheckboxImpar(true);
         setCheckboxPorNumero(false);
-
     };
     const handleCheckboxPorNumero = () => {
         setCheckboxTodos(false);
@@ -60,103 +55,43 @@ function TelaResultado() {
 
     function selectIfEscolharSorteio() {
 
-        if (checkboxPorNumero === true) {
-            if (numerosEscolhidos === null || numerosEscolhidos === "") {
-                Alert.alert('Preenchimento Obrigatório!', 'Campus "Escolhar o número" não foi preenchido.', [
-                    { text: 'preencher', style: 'cancel' },
+        if (checkboxtodos === true) {
+            navigation.navigate('Sorteio',
+                { itemCheckboxtodos: checkboxtodos, itemCheckboxPorNumero: checkboxPorNumero, itemCheckboxpar: checkboxpar, itemCheckboximpar: checkboximpar });
+        }
+        else if (checkboxPorNumero === true) {
+            if (numeroEscolhido === null || numeroEscolhido === "") {
+                Alert.alert('Preenchimento Obrigatório!', 'O campo "Escolhar o número" não foi preenchido.', [
+                    { text: 'Preencher', style: 'cancel' },
                 ]);
                 return;
             }
+            navigation.navigate('Sorteio',
+                { itemCheckboxtodos: checkboxtodos, itemCheckboxPorNumero: checkboxPorNumero, itemCheckboxpar: checkboxpar, itemCheckboximpar: checkboximpar, itemNumeroEscolhido: numeroEscolhido });
 
-            console.log("Verificação passou Por Número");
-            sortearSomentePeloNumero();
-
-        }
-        else if (checkboxtodos === true) {
-            console.log("Verificação passou Todos");
-            sortearTodosNumeros();
         }
         else if (checkboxpar === true) {
-            console.log("Verificação passou Par");
-            sortearSomenteNumeroPar();
+            navigation.navigate('Sorteio',
+                { itemCheckboxtodos: checkboxtodos, itemCheckboxPorNumero: checkboxPorNumero, itemCheckboxpar: checkboxpar, itemCheckboximpar: checkboximpar });
         }
         else if (checkboximpar === true) {
-            console.log("Verificação passou Impar");
-            sortearSomenteNumeroImpar();
+            navigation.navigate('Sorteio',
+                { itemCheckboxtodos: checkboxtodos, itemCheckboxPorNumero: checkboxPorNumero, itemCheckboxpar: checkboxpar, itemCheckboximpar: checkboximpar });
         }
         else {
-            console.log("verificação não passou ou nenhum checkbox true!")
+            console.log("Error ao navigar para a tela Sorteio e passa os Itens!")
         }
     }
 
-    
-    
-    function sortearSomentePeloNumero() {
-        const breakNumero = parseInt(numerosEscolhidos); // Converter para número inteiro
-        let guardarNumero;
-        
-        if (breakNumero > qtddeNumeros) {
-            Alert.alert('Escolhar um número menor!','No campus "Escolhar o número" Escolhar um número que seja menor que a quantidade de números do sorteio.', [
-                { text: 'preencher', style: 'cancel' },
-            ]);
-            return;
-        }
-
-        do {
-
-            guardarNumero = Math.floor(Math.random() * 100) + 1; // Gera um número aleatório entre 1 e 100.
-           
-        } while (guardarNumero !== breakNumero);
-
-        console.log(guardarNumero);
-    };
-
-
-
-    function sortearTodosNumeros() {
-        let guardarNumero;
-
-        guardarNumero = Math.floor(Math.random() * qtddeNumeros) + 1; // Gera um número aleatório entre 1 e quantidade escolhida.
-
-        console.log(guardarNumero);
-    };
-
-    function sortearSomenteNumeroPar() {
-        let guardarNumero;
-
-        do {
-
-            guardarNumero = Math.floor(Math.random() * qtddeNumeros) + 1; // Gera um número aleatório entre 1 e quantidade escolhida.
-
-
-
-        } while (guardarNumero % 2 === 1);
-
-        console.log(guardarNumero);
-    };
-
-    function sortearSomenteNumeroImpar() {
-        let guardarNumero;
-
-        do {
-
-            guardarNumero = Math.floor(Math.random() * qtddeNumeros) + 1; // Gera um número aleatório entre 1 e quantidade escolhida.
-
-
-
-        } while (guardarNumero % 2 === 0);
-
-        console.log(guardarNumero);
-    };
 
 
     // limpar dados, irá alterar todos os checkBox para false e deixa null o campo escolhar numero.
 
     function limparDados() {
 
-        setNumerosEscolhidos(null);
+        setNumeroEscolhido(null);
         setCheckboxPorNumero(false);
-        setCheckboxTodos(false);
+        setCheckboxTodos(true);
         setCheckboxPar(false);
         setCheckboxImpar(false);
     };
@@ -180,33 +115,20 @@ function TelaResultado() {
                     <View style={styles.flexbox} >
 
                         <Checkbox
-                            status={checkboxPorNumero ? 'checked' : 'unchecked'}
+                            status={checkboxtodos ? 'checked' : 'unchecked'}
                             onPress={() => {
-                                handleCheckboxPorNumero();
+                                handleCheckboxTodos();
                             }}
                             uncheckedColor="#fff"
                             color="#fff"
                         />
                         <Text style={styles.textBox}>
-                            Somente pelo número:
+                            Todos os números.
                         </Text>
                     </View>
-                    <TextInput
-                        label={'Escolhar o número'}
-                        textColor="#fff"
-                        value={numerosEscolhidos}
-                        selectionColor="#fff"
-                        right={<TextInput.Icon icon="keyboard" color={'#fff'} />}
-                        activeUnderlineColor="#fff"
-                        theme={tema}
-                        style={styles.textInput}
-                        onChangeText={numerosApenas}
-                        keyboardType="numeric"
-                        maxLength={10}
-                    />
-                    <Text style={styles.text3}>Ex: o sorteio irá parar no número escolhido.</Text>
-                    <Text style={styles.text3}>Número escolhido: <Text style={{ color: '#38B6FF', fontWeight: 700 }}>{numerosEscolhidos}</Text></Text>
+                    <Text style={styles.text3}>Ex: o sorteio será padrão, todos participando.</Text>
                 </View>
+
 
                 <View style={styles.viewBox}>
 
@@ -214,18 +136,32 @@ function TelaResultado() {
                         <View style={styles.flexbox} >
 
                             <Checkbox
-                                status={checkboxtodos ? 'checked' : 'unchecked'}
+                                status={checkboxPorNumero ? 'checked' : 'unchecked'}
                                 onPress={() => {
-                                    handleCheckboxTodos();
+                                    handleCheckboxPorNumero();
                                 }}
                                 uncheckedColor="#fff"
                                 color="#fff"
                             />
                             <Text style={styles.textBox}>
-                                Todos os números.
+                                Somente pelo número:
                             </Text>
                         </View>
-                        <Text style={styles.text3}>Ex: o sorteio será padrão, todos participando.</Text>
+                        <TextInput
+                            label={'Escolhar o número'}
+                            textColor="#fff"
+                            value={numeroEscolhido}
+                            selectionColor="#fff"
+                            right={<TextInput.Icon icon="keyboard" color={'#fff'} />}
+                            activeUnderlineColor="#fff"
+                            theme={tema}
+                            style={styles.textInput}
+                            onChangeText={numerosApenas}
+                            keyboardType="numeric"
+                            maxLength={10}
+                        />
+                        <Text style={styles.text3}>Ex: o sorteio irá parar no número escolhido.</Text>
+                        <Text style={styles.text3}>Número escolhido: <Text style={{ color: '#38B6FF', fontWeight: 700 }}>{numeroEscolhido}</Text></Text>
                     </View>
 
                     <View style={styles.viewCard}>

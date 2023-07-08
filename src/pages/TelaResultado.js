@@ -1,15 +1,37 @@
 import { React, useState, useEffect } from "react";
 import { TextInput, Button, Avatar, IconButton, Badge } from "react-native-paper";
 import { View, ScrollView, Text, Image, Linking } from "react-native";
+import { useRoute } from '@react-navigation/native';
+
 
 import styles from "../style/StyleTelaResultado";
 
 function TelaResultado() {
+    const route = useRoute();
+
+    const [guardarNumeroSorteado, setGuardarNumeroSorteado] = useState(null);
+    const [qtdNumeros, setQtdNumeros] = useState(1000);
+
+
+    const { itemQtdNumeros, itemResultadoSorteio } = route.params ?? {};
+
+    console.log("Item aqui: ", itemQtdNumeros);
+    console.log("Item Sorteio : ", itemResultadoSorteio);
+
+    useEffect(() => {
+
+        setQtdNumeros(itemQtdNumeros);
+        setGuardarNumeroSorteado(itemResultadoSorteio);
+
+    }, [itemQtdNumeros, itemResultadoSorteio]);
+
+
+
     return (
         <View style={styles.containerPrincipal}>
             <View style={styles.viewSorteio}>
-                <Text style={styles.text}>De 1 a 1000</Text>
-                <Text style={styles.text}>Foram sorteados 999 números</Text>
+                <Text style={styles.text}>De 1 a {qtdNumeros}</Text>
+                <Text style={styles.text}>Foram sorteados {qtdNumeros} números</Text>
             </View>
             <View style={styles.container}>
 
@@ -18,7 +40,7 @@ function TelaResultado() {
                     <Badge
                         size={50}
                         style={styles.ganhadorResultado}
-                    >1354021</Badge>
+                    >{guardarNumeroSorteado}</Badge>
                 </View>
 
                 <View style={styles.butoes}>
