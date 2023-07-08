@@ -15,9 +15,6 @@ function TelaResultado() {
 
     const { itemQtdNumeros, itemResultadoSorteio } = route.params ?? {};
 
-    console.log("Item aqui: ", itemQtdNumeros);
-    console.log("Item Sorteio : ", itemResultadoSorteio);
-
     useEffect(() => {
 
         setQtdNumeros(itemQtdNumeros);
