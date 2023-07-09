@@ -40,8 +40,14 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderWidth: 2,
     },
+    dateTime:{
+        marginTop:-74,
+        color:'#fff',
+        textAlign:'center',
+        // alignItems:'center'
+    },
     butoes: {
-        marginTop: 50,
+        marginTop: 80,
     },
     icon: {
         left: 282,
@@ -51,6 +57,7 @@ const styles = StyleSheet.create({
         width: 330,
         borderRadius: 6,
     },
+    
     textLoading:{
         marginTop:15,
         fontSize:18,

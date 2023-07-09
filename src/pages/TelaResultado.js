@@ -6,12 +6,13 @@ import { useRoute } from '@react-navigation/native';
 
 import styles from "../style/StyleTelaResultado";
 
-function TelaResultado() {
+function TelaResultado({ navigation }) {
     const route = useRoute();
 
     const [guardarNumeroSorteado, setGuardarNumeroSorteado] = useState(null);
     const [qtdNumeros, setQtdNumeros] = useState(1000);
     const [loading, setLoading] = useState(false);
+    const [dateTime, setDateTime] = useState(null);
 
 
     const { itemQtdNumeros, itemResultadoSorteio } = route.params ?? {};
@@ -28,19 +29,18 @@ function TelaResultado() {
     // Ao passa os segundos Tela Carregando retorna para False,
     setTimeout(() => {
         setLoading(false);
-      }, 1350);
+    }, 1350);
 
-    if(loading)
-    {
-        return(
+    if (loading) {
+        return (
             <View style={styles.containerPrincipal}>
                 <View style={styles.container}>
-                <ActivityIndicator
-                  animating={true}
-                  color={'#003150'}
-                  size={'large'}
-                />
-                <Text style={styles.textLoading}>Aguarde...</Text>
+                    <ActivityIndicator
+                        animating={true}
+                        color={'#003150'}
+                        size={'large'}
+                    />
+                    <Text style={styles.textLoading}>Aguarde...</Text>
                 </View>
             </View>
         )
@@ -60,7 +60,9 @@ function TelaResultado() {
                     <Badge
                         size={50}
                         style={styles.ganhadorResultado}
-                    >{guardarNumeroSorteado}</Badge>
+                    >{guardarNumeroSorteado}
+                    </Badge>
+                    <Text style={styles.dateTime}>Último Sorteio: D: 09/07/23 T:22:30:11</Text>
                 </View>
 
                 <View style={styles.butoes}>
@@ -80,6 +82,14 @@ function TelaResultado() {
                         onPress={() => { alert('OK') }}
                     >
                         Salvar
+                    </Button>
+                    <Button
+                        textColor="#003150"
+                        icon={'poker-chip'}
+                        style={styles.button}
+                        onPress={() => { navigation.navigate('Sorteio') }}
+                    >
+                        Sortear Novamente
                     </Button>
                 </View>
 
