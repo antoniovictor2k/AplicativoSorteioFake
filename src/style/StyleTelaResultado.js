@@ -51,6 +51,12 @@ const styles = StyleSheet.create({
         width: 330,
         borderRadius: 6,
     },
+    textLoading:{
+        marginTop:15,
+        fontSize:18,
+        fontWeight:700,
+        color: '#003150',
+    },
     dev: {
         color: '#003150',
         bottom: 10,

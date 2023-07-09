@@ -10,7 +10,6 @@ function TelaResultado({ navigation }) {
     const [checkboxpar, setCheckboxPar] = useState(false);
     const [checkboximpar, setCheckboxImpar] = useState(false);
     const [numeroEscolhido, setNumeroEscolhido] = useState(null);
-    const [qtdNumeros, setQtdNumeros] = useState(100);
 
     const numerosApenas = (text) => {
         // Remove qualquer caractere que não seja número

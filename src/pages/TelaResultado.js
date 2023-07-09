@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { TextInput, Button, Avatar, IconButton, Badge } from "react-native-paper";
+import { TextInput, Button, Avatar, IconButton, Badge, ActivityIndicator } from "react-native-paper";
 import { View, ScrollView, Text, Image, Linking } from "react-native";
 import { useRoute } from '@react-navigation/native';
 
@@ -11,6 +11,7 @@ function TelaResultado() {
 
     const [guardarNumeroSorteado, setGuardarNumeroSorteado] = useState(null);
     const [qtdNumeros, setQtdNumeros] = useState(1000);
+    const [loading, setLoading] = useState(false);
 
 
     const { itemQtdNumeros, itemResultadoSorteio } = route.params ?? {};
@@ -19,9 +20,31 @@ function TelaResultado() {
 
         setQtdNumeros(itemQtdNumeros);
         setGuardarNumeroSorteado(itemResultadoSorteio);
+        // enviar true e ativa tela carregando ...
+        setLoading(true);
 
     }, [itemQtdNumeros, itemResultadoSorteio]);
 
+    // Ao passa os segundos Tela Carregando retorna para False,
+    setTimeout(() => {
+        setLoading(false);
+      }, 1350);
+
+    if(loading)
+    {
+        return(
+            <View style={styles.containerPrincipal}>
+                <View style={styles.container}>
+                <ActivityIndicator
+                  animating={true}
+                  color={'#003150'}
+                  size={'large'}
+                />
+                <Text style={styles.textLoading}>Aguarde...</Text>
+                </View>
+            </View>
+        )
+    }
 
 
     return (
