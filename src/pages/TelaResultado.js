@@ -6,6 +6,9 @@ import { useRoute } from '@react-navigation/native';
 
 import styles from "../style/StyleTelaResultado";
 
+
+
+
 function TelaResultado({ navigation }) {
     const route = useRoute();
 
@@ -13,6 +16,8 @@ function TelaResultado({ navigation }) {
     const [qtdNumeros, setQtdNumeros] = useState(1000);
     const [loading, setLoading] = useState(false);
     const [dateTime, setDateTime] = useState(null);
+
+
 
 
     const { itemQtdNumeros, itemResultadoSorteio } = route.params ?? {};
@@ -23,6 +28,21 @@ function TelaResultado({ navigation }) {
         setGuardarNumeroSorteado(itemResultadoSorteio);
         // enviar true e ativa tela carregando ...
         setLoading(true);
+
+        // marcar o dia e horário que foi feito o sorteio.
+        const dataAtual = new Date();
+
+        const ano = dataAtual.getFullYear();
+        const mes = dataAtual.getMonth() + 1;
+        const dia = dataAtual.getDate();
+
+        const hora = dataAtual.getHours();
+        const minuto = dataAtual.getMinutes();
+        const segundo = dataAtual.getSeconds();
+        const dateEHorario = `Dia ${dia}/${mes}/${ano} ás: ${hora}:${minuto}:${segundo}`;
+       setDateTime(dateEHorario);
+
+
 
     }, [itemQtdNumeros, itemResultadoSorteio]);
 
@@ -62,7 +82,7 @@ function TelaResultado({ navigation }) {
                         style={styles.ganhadorResultado}
                     >{guardarNumeroSorteado}
                     </Badge>
-                    <Text style={styles.dateTime}>Último Sorteio: D: 09/07/23 T:22:30:11</Text>
+                    <Text style={styles.dateTime}>Último Sorteio: {dateTime}</Text>
                 </View>
 
                 <View style={styles.butoes}>
