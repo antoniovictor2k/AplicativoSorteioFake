@@ -1,7 +1,10 @@
 import { React, useState, useEffect } from "react";
+import Share from 'react-native-share';
+
 import { TextInput, Button, Avatar, IconButton, Badge, ActivityIndicator } from "react-native-paper";
-import { View, ScrollView, Text, Image, Linking } from "react-native";
+import { View, ScrollView, Text, Image, Linking, PermissionsAndroid, Platform } from "react-native";
 import { useRoute } from '@react-navigation/native';
+import { captureScreen } from 'react-native-view-shot';
 
 
 import styles from "../style/StyleTelaResultado";
@@ -51,6 +54,63 @@ function TelaResultado({ navigation }) {
         setLoading(false);
     }, 1350);
 
+    // tira Print e salva no depositivo,
+
+    const handleShareScreenshot = async () => {
+        try {
+          const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
+          );
+      
+          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            const uri = await captureScreen({
+              format: 'jpg',
+              quality: 0.8,
+            });
+      
+            const shareOptions = {
+              title: 'Compartilhar Print de Tela',
+              url: `file://${uri}`,
+              type: 'image/jpeg',
+            };
+      
+            await Share.open(shareOptions);
+          } else {
+            console.log('Permissão de armazenamento não concedida.');
+          }
+        } catch (error) {
+          console.log('Erro ao capturar ou compartilhar o print de tela:', error);
+        }
+      };
+      
+
+
+    // teste 2
+
+    // const handleCaptureScreenshot = async () => {
+    //     try {
+    //       const granted = await PermissionsAndroid.request(
+    //         PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
+    //       );
+      
+    //       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+    //         captureScreen({
+    //           format: 'jpg',
+    //           quality: 0.8,
+    //         }).then(uri => {
+    //           console.log('Captura de tela salva:', uri);
+    //         });
+    //       } else {
+    //         console.log('Permissão de armazenamento não concedida.');
+    //       }
+    //     } catch (error) {
+    //       console.log('Erro ao capturar a tela:', error);
+    //     }
+    //   };
+      
+
+// return tela carregando e depois retorne tela padrão. 
+
     if (loading) {
         return (
             <View style={styles.containerPrincipal}>
@@ -68,7 +128,7 @@ function TelaResultado({ navigation }) {
 
 
     return (
-        <View style={styles.containerPrincipal}>
+        <View style={styles.containerPrincipal}  >
             <View style={styles.viewSorteio}>
                 <Text style={styles.text}>De 1 a {qtdNumeros}</Text>
                 <Text style={styles.text}>Foram sorteados {qtdNumeros} números</Text>
@@ -92,14 +152,14 @@ function TelaResultado({ navigation }) {
                         size={24}
                         icon={'arrow-right-top-bold'}
                         style={styles.icon}
-                        onPress={() => { alert('Hello Antonio') }}
+                        onPress={handleShareScreenshot}
                     />
                     <Button
                         buttonColor="#000"
                         textColor="#fff"
                         icon={'content-save-outline'}
                         style={styles.button}
-                        onPress={() => { alert('OK') }}
+                        onPress={()=>console.log("ok")}
                     >
                         Salvar
                     </Button>
