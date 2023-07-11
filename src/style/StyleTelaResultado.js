@@ -15,9 +15,50 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    // Inicio Container Print
+    printContainer: {
+        backgroundColor: "#fff",
+        color: '#000',
+        alignItems: "center",
+        position: 'absolute',
+        top: -10000,
+        padding: 15,
+        // Mova o elemento capturado para fora da tela visível
+        // Estilo do conteúdo capturado com estilo diferente
+    },
+    printTitulo: {
+        fontWeight: 700,
+        fontSize: 22,
+    },
+    printText: {
+        fontSize: 20,
+    },
+    printResultado: {
+        fontWeight: 700,
+        fontSize: 20,
+    },
+    printViewResultado: {
+        marginTop: 15,
+        marginBottom: 15,
+    },
+    printGanhador: {
+        textAlign: "center",
+        backgroundColor: '#000',
+        color: '#fff',
+        padding: 6,
+        fontSize: 22,
+        fontWeight: 600,
+        borderRadius: 50,
+    },
+    printDev: {
+        marginTop: 20,
+        fontWeight: 700,
+        fontSize: 17,
+    },
+    // Fim Container Print
     viewSorteio: {
         marginTop: 30,
-        marginLeft:15,
+        marginLeft: 15,
     },
     text: {
         fontWeight: 700,
@@ -40,10 +81,10 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderWidth: 2,
     },
-    dateTime:{
-        marginTop:-74,
-        color:'#fff',
-        textAlign:'center',
+    dateTime: {
+        marginTop: -74,
+        color: '#fff',
+        textAlign: 'center',
         // alignItems:'center'
     },
     butoes: {
@@ -57,11 +98,11 @@ const styles = StyleSheet.create({
         width: 330,
         borderRadius: 6,
     },
-    
-    textLoading:{
-        marginTop:15,
-        fontSize:18,
-        fontWeight:700,
+
+    textLoading: {
+        marginTop: 15,
+        fontSize: 18,
+        fontWeight: 700,
         color: '#003150',
     },
     dev: {

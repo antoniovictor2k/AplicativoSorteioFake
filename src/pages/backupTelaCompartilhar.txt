@@ -1,10 +1,10 @@
-import { React, useState, useEffect, useRef } from "react";
+import { React, useState, useEffect, useRef} from "react";
 import * as MediaLibrary from 'expo-media-library';
 import * as Sharing from 'expo-sharing';
 import { TextInput, Button, Avatar, IconButton, Badge, ActivityIndicator } from "react-native-paper";
 import { View, ScrollView, Text, Image, Linking, PermissionsAndroid, Platform } from "react-native";
 import { useRoute } from '@react-navigation/native';
-import { captureScreen, captureRef } from 'react-native-view-shot';
+import { captureScreen } from 'react-native-view-shot';
 
 
 import styles from "../style/StyleTelaResultado";
@@ -30,7 +30,7 @@ function TelaResultado({ navigation }) {
         setQtdNumeros(itemQtdNumeros);
         setGuardarNumeroSorteado(itemResultadoSorteio);
         // enviar true e ativa tela carregando ...
-        // setLoading(true);
+        setLoading(true);
 
         // marcar o dia e horário que foi feito o sorteio.
         const dataAtual = new Date();
@@ -42,7 +42,7 @@ function TelaResultado({ navigation }) {
         const hora = dataAtual.getHours();
         const minuto = dataAtual.getMinutes();
         const segundo = dataAtual.getSeconds();
-        const dateEHorario = `Dia ${dia}/${mes}/${ano} às: ${hora}:${minuto}:${segundo}`;
+        const dateEHorario = `Dia ${dia}/${mes}/${ano} ás: ${hora}:${minuto}:${segundo}`;
         setDateTime(dateEHorario);
 
 
@@ -61,28 +61,22 @@ function TelaResultado({ navigation }) {
             const { status } = await MediaLibrary.requestPermissionsAsync();
 
             if (status === 'granted') {
-
-                captureRef(viewRef, {
+                const uri = await captureScreen(testeRef,{
                     format: 'jpg',
                     quality: 0.8,
-                })
-                    .then(async uri => {
-                        await MediaLibrary.saveToLibraryAsync(uri);
-                        await Sharing.shareAsync(uri);
-                    })
-                    .catch(error => {
-                        console.log('Erro ao capturar o print de tela:', error);
-                    });
+                });
+
+                await MediaLibrary.saveToLibraryAsync(uri);
+                await Sharing.shareAsync(uri);
             } else {
                 console.log('Permissão de acesso à mídia não concedida.');
             }
         } catch (error) {
-            console.log('Erro ao solicitar permissão de acesso à mídia:', error);
+            console.log('Erro ao capturar ou compartilhar o print de tela:', error);
         }
     };
 
-
-    const viewRef = useRef();
+    const testeRef = useRef();
 
     // return tela carregando e depois retorne tela padrão. 
 
@@ -103,35 +97,11 @@ function TelaResultado({ navigation }) {
 
 
     return (
-        <View style={styles.containerPrincipal}  >
+        <View style={styles.containerPrincipal} >
             <View style={styles.viewSorteio}  >
                 <Text style={styles.text}>De 1 a {qtdNumeros}</Text>
                 <Text style={styles.text}>Foram sorteados {qtdNumeros} números</Text>
             </View>
-
-            <View ref={viewRef} style={styles.printContainer}>
-                <View>
-                    <Avatar.Image size={130}
-                        source={require('../../assets/SFSorteio.png')}
-                        style={{ backgroundColor: 'transparent' }}
-                    />
-                </View>
-                <Text style={styles.printTitulo}>
-                    Resultado do Sorteio
-                </Text>
-                <View style={styles.printViewResultado}>
-                    <Text style={styles.printText}>Ganhador</Text>
-                    <Text style={styles.printGanhador}>{guardarNumeroSorteado}</Text>
-                </View>
-                <Text style={styles.printText}>
-                    Sorteio realizado
-                </Text>
-                <Text style={styles.printResultado}>
-                    {dateTime}
-                </Text>
-                <Text style={styles.printDev}>Dev: @antoniovictor2k</Text>
-            </View>
-
             <View style={styles.container} >
 
                 <View style={styles.viewGanhador}>
@@ -145,14 +115,22 @@ function TelaResultado({ navigation }) {
                 </View>
 
                 <View style={styles.butoes}>
+                    <IconButton
+                        iconColor={'#fff'}
+                        containerColor="#000"
+                        size={24}
+                        icon={'arrow-right-top-bold'}
+                        style={styles.icon}
+                        onPress={handleShareScreenshot}
+                    />
                     <Button
                         buttonColor="#000"
                         textColor="#fff"
-                        icon={'share-all'}
+                        icon={'content-save-outline'}
                         style={styles.button}
-                        onPress={handleShareScreenshot}
+                        onPress={() => console.log("ok")}
                     >
-                        Compartilhar
+                        Salvar
                     </Button>
                     <Button
                         textColor="#003150"
