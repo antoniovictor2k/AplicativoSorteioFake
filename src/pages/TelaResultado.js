@@ -10,10 +10,9 @@ import { captureScreen, captureRef } from 'react-native-view-shot';
 import styles from "../style/StyleTelaResultado";
 
 
-
-
 function TelaResultado({ navigation }) {
     const route = useRoute();
+    const { itemQtdNumeros, itemResultadoSorteio } = route.params ?? {};
 
     const [guardarNumeroSorteado, setGuardarNumeroSorteado] = useState(null);
     const [qtdNumeros, setQtdNumeros] = useState(1000);
@@ -21,31 +20,25 @@ function TelaResultado({ navigation }) {
     const [dateTime, setDateTime] = useState(null);
 
 
-
-
-    const { itemQtdNumeros, itemResultadoSorteio } = route.params ?? {};
-
     useEffect(() => {
 
         setQtdNumeros(itemQtdNumeros);
         setGuardarNumeroSorteado(itemResultadoSorteio);
         // enviar true e ativa tela carregando ...
-        // setLoading(true);
+        setLoading(true);
 
         // marcar o dia e horário que foi feito o sorteio.
         const dataAtual = new Date();
 
         const ano = dataAtual.getFullYear();
-        const mes = dataAtual.getMonth() + 1;
-        const dia = dataAtual.getDate();
+        const mes = (dataAtual.getMonth() + 1).toString().padStart(2, '0');
+        const dia = dataAtual.getDate().toString().padStart(2, '0');
 
-        const hora = dataAtual.getHours();
-        const minuto = dataAtual.getMinutes();
-        const segundo = dataAtual.getSeconds();
+        const hora = dataAtual.getHours().toString().padStart(2, '0');
+        const minuto = dataAtual.getMinutes().toString().padStart(2, '0');
+        const segundo = dataAtual.getSeconds().toString().padStart(2, '0');
         const dateEHorario = `Dia ${dia}/${mes}/${ano} às: ${hora}:${minuto}:${segundo}`;
         setDateTime(dateEHorario);
-
-
 
     }, [itemQtdNumeros, itemResultadoSorteio]);
 
@@ -54,7 +47,7 @@ function TelaResultado({ navigation }) {
         setLoading(false);
     }, 1350);
 
-    // tira Print e salva no depositivo,
+    // tira Print e Compartilhar.
 
     const handleShareScreenshot = async () => {
         try {
@@ -80,7 +73,6 @@ function TelaResultado({ navigation }) {
             console.log('Erro ao solicitar permissão de acesso à mídia:', error);
         }
     };
-
 
     const viewRef = useRef();
 
