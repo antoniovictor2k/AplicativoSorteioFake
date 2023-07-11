@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
-import Share from 'react-native-share';
-
+import * as MediaLibrary from 'expo-media-library';
+import * as Sharing from 'expo-sharing';
 import { TextInput, Button, Avatar, IconButton, Badge, ActivityIndicator } from "react-native-paper";
 import { View, ScrollView, Text, Image, Linking, PermissionsAndroid, Platform } from "react-native";
 import { useRoute } from '@react-navigation/native';
@@ -43,7 +43,7 @@ function TelaResultado({ navigation }) {
         const minuto = dataAtual.getMinutes();
         const segundo = dataAtual.getSeconds();
         const dateEHorario = `Dia ${dia}/${mes}/${ano} ás: ${hora}:${minuto}:${segundo}`;
-       setDateTime(dateEHorario);
+        setDateTime(dateEHorario);
 
 
 
@@ -58,58 +58,25 @@ function TelaResultado({ navigation }) {
 
     const handleShareScreenshot = async () => {
         try {
-          const granted = await PermissionsAndroid.request(
-            PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
-          );
-      
-          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-            const uri = await captureScreen({
-              format: 'jpg',
-              quality: 0.8,
-            });
-      
-            const shareOptions = {
-              title: 'Compartilhar Print de Tela',
-              url: `file://${uri}`,
-              type: 'image/jpeg',
-            };
-      
-            await Share.open(shareOptions);
-          } else {
-            console.log('Permissão de armazenamento não concedida.');
-          }
+            const { status } = await MediaLibrary.requestPermissionsAsync();
+
+            if (status === 'granted') {
+                const uri = await captureScreen({
+                    format: 'jpg',
+                    quality: 0.8,
+                });
+
+                await MediaLibrary.saveToLibraryAsync(uri);
+                await Sharing.shareAsync(uri);
+            } else {
+                console.log('Permissão de acesso à mídia não concedida.');
+            }
         } catch (error) {
-          console.log('Erro ao capturar ou compartilhar o print de tela:', error);
+            console.log('Erro ao capturar ou compartilhar o print de tela:', error);
         }
-      };
-      
+    };
 
-
-    // teste 2
-
-    // const handleCaptureScreenshot = async () => {
-    //     try {
-    //       const granted = await PermissionsAndroid.request(
-    //         PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
-    //       );
-      
-    //       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-    //         captureScreen({
-    //           format: 'jpg',
-    //           quality: 0.8,
-    //         }).then(uri => {
-    //           console.log('Captura de tela salva:', uri);
-    //         });
-    //       } else {
-    //         console.log('Permissão de armazenamento não concedida.');
-    //       }
-    //     } catch (error) {
-    //       console.log('Erro ao capturar a tela:', error);
-    //     }
-    //   };
-      
-
-// return tela carregando e depois retorne tela padrão. 
+    // return tela carregando e depois retorne tela padrão. 
 
     if (loading) {
         return (
@@ -128,8 +95,8 @@ function TelaResultado({ navigation }) {
 
 
     return (
-        <View style={styles.containerPrincipal}  >
-            <View style={styles.viewSorteio}>
+        <View style={styles.containerPrincipal} >
+            <View style={styles.viewSorteio} >
                 <Text style={styles.text}>De 1 a {qtdNumeros}</Text>
                 <Text style={styles.text}>Foram sorteados {qtdNumeros} números</Text>
             </View>
@@ -159,7 +126,7 @@ function TelaResultado({ navigation }) {
                         textColor="#fff"
                         icon={'content-save-outline'}
                         style={styles.button}
-                        onPress={()=>console.log("ok")}
+                        onPress={() => console.log("ok")}
                     >
                         Salvar
                     </Button>
