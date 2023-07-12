@@ -15,6 +15,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+
+    winnerElement: {
+        backgroundColor: 'yellow', // Altere para a cor desejada
+        // Outros estilos para o elemento vencedor
+      },
+
     // Inicio Container Print
     printContainer: {
         backgroundColor: "#fff",

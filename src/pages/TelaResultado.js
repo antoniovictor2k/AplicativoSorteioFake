@@ -13,6 +13,7 @@ import styles from "../style/StyleTelaResultado";
 function TelaResultado({ navigation }) {
     const route = useRoute();
     const { itemQtdNumeros, itemResultadoSorteio } = route.params ?? {};
+    const isWinner = true;
 
     const [guardarNumeroSorteado, setGuardarNumeroSorteado] = useState(0);
     const [qtdNumeros, setQtdNumeros] = useState(0);
@@ -24,21 +25,25 @@ function TelaResultado({ navigation }) {
 
         setQtdNumeros(itemQtdNumeros);
         setGuardarNumeroSorteado(itemResultadoSorteio);
-        // enviar true e ativa tela carregando ...
-        setLoading(true);
-
+        
+        
+        
         // marcar o dia e horário que foi feito o sorteio.
         const dataAtual = new Date();
-
+        
         const ano = dataAtual.getFullYear();
         const mes = (dataAtual.getMonth() + 1).toString().padStart(2, '0');
         const dia = dataAtual.getDate().toString().padStart(2, '0');
-
+        
         const hora = dataAtual.getHours().toString().padStart(2, '0');
         const minuto = dataAtual.getMinutes().toString().padStart(2, '0');
         const segundo = dataAtual.getSeconds().toString().padStart(2, '0');
         const dateEHorario = `Dia ${dia}/${mes}/${ano} às: ${hora}:${minuto}:${segundo}`;
-        setDateTime(dateEHorario);
+        if(itemQtdNumeros){
+            setDateTime(dateEHorario);
+            // enviar true e ativa tela carregando ...
+            setLoading(true);
+        }
 
     }, [itemQtdNumeros, itemResultadoSorteio]);
 
@@ -130,7 +135,7 @@ function TelaResultado({ navigation }) {
                     <Text style={styles.textGanhador}>Ganhador</Text>
                     <Badge
                         size={50}
-                        style={styles.ganhadorResultado}
+                        style={[styles.ganhadorResultado]}
                     >{guardarNumeroSorteado}
                     </Badge>
                     <Text style={styles.dateTime}>Último Sorteio: {dateTime}</Text>
