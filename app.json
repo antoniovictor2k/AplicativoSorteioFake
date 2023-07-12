@@ -18,13 +18,20 @@
       "supportsTablet": true
     },
     "android": {
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#38B6FF"
-      }
+      },
+      "package": "com.antoniovictor.AppSorteioFake"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "573d2c14-0472-47c4-b414-ae7be48e58c0"
+      }
     }
   }
 }
