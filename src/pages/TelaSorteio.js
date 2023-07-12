@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { TextInput, Button, Avatar } from "react-native-paper";
-import { View, ScrollView, Text, Image, Alert } from "react-native";
+import { View, Text, Alert } from "react-native";
 import { useRoute } from '@react-navigation/native';
 
 import styles from "../style/StyleTelaSorteio";
@@ -17,7 +17,6 @@ function TelaSorteio({ navigation }) {
     const [checkboximpar, setCheckboxImpar] = useState(false);
     const [numeroEscolhido, setNumeroEscolhido] = useState(null);
     const [qtdNumeros, setQtdNumeros] = useState(null);
-    const [winners, setWinners] = useState([]);
 
 
     const funQtdNumeros = (text) => {
@@ -80,10 +79,7 @@ function TelaSorteio({ navigation }) {
         else {
             console.log("Error na verificação de CheckBox")
         }
-
-
     };
-
 
 
     function sortearTodosNumeros() {

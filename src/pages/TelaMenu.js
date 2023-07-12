@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
-import { React, useState } from 'react';
-import { Text, View, TouchableOpacity, Linking, StyleSheet } from 'react-native';
-import { Button, Avatar, Divider } from 'react-native-paper';
+import { React } from 'react';
+import { Text, View, Linking } from 'react-native';
+import { Avatar, Divider } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
@@ -14,20 +14,9 @@ import TelaContato from './TelaContato';
 import TelaResultado from './TelaResultado';
 import TelaConfiguracao from './TelaConfiguracao';
 
-// import TelaTermosDePrivacidade from './TelaPoliticaDePrivacidade';
-// import TelaTermosDeUso from './TelaTermosDeUso';
-
-
-
 
 function CustomDrawerContent(props) {
   const navigation = useNavigation();
-
-  // guarda os dados do json nome, email e img aqui.
-  const [nomeUsuario, setNomeUsuario] = useState(null);
-  const [emailUsuario, setEmailUsuario] = useState(null);
-  const [imageUrl, setImagemUrl] = useState(null);
-
 
   return (
     <DrawerContentScrollView style={styles.containerPrincipal} contentContainerStyle={styles.containerPrincipal}>
@@ -54,17 +43,21 @@ function CustomDrawerContent(props) {
             Tutorial de Uso do App, Click Aqui.
           </Text>
           <Text style={styles.link}>
-            <Text style={styles.linkBold} 
-            onPress={()=>{ navigation.navigate("TermosDeUso");}}
+            <Text style={styles.linkBold}
+              onPress={() => { navigation.navigate("TermosDeUso"); }}
             >Termos de uso</Text>
             {' '}e de{' '}
-            <Text style={styles.linkBold} 
-             onPress={()=>{ navigation.navigate("Privacidade");}}
+            <Text style={styles.linkBold}
+              onPress={() => { navigation.navigate("Privacidade"); }}
             >Privacidade</Text>
           </Text>
         </View>
       </View>
-      <Text style={styles.dev}>Dev Antonio Victor</Text>
+      <Text style={styles.dev}
+        onPress={() => {
+          Linking.openURL('https://www.instagram.com/antoniovictor2k/');
+        }}
+      >@antoniovictor2k</Text>
     </DrawerContentScrollView>
   );
 }

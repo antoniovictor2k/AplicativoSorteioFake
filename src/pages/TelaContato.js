@@ -1,7 +1,6 @@
-import { React, useState, useEffect } from "react";
-import { TextInput, Button, Avatar, IconButton } from "react-native-paper";
-import { View, ScrollView, Text, Image, Linking } from "react-native";
-import { WebView } from 'react-native-webview';
+import { React } from "react";
+import { IconButton } from "react-native-paper";
+import { View, Text, Linking } from "react-native";
 
 
 import styles from "../style/StyleTelaContato";
@@ -70,7 +69,7 @@ function TelaContato() {
                         icon="youtube"
                         iconColor={'#fff'}
                         size={30}
-                        onPress={() => Linking.openURL('https://youtube.com')}
+                        onPress={() => Linking.openURL('https://www.youtube.com/channel/UC34uy4B5Yg1pN2b4jtDkY-A')}
                     />
                     <IconButton
                         icon="twitter"

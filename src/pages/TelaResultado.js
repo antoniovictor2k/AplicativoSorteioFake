@@ -1,11 +1,10 @@
 import { React, useState, useEffect, useRef } from "react";
 import * as MediaLibrary from 'expo-media-library';
 import * as Sharing from 'expo-sharing';
-import { TextInput, Button, Avatar, IconButton, Badge, ActivityIndicator } from "react-native-paper";
-import { View, ScrollView, Text, Image, Linking, PermissionsAndroid, Platform } from "react-native";
+import { Button, Avatar, Badge, ActivityIndicator } from "react-native-paper";
+import { View, Text } from "react-native";
 import { useRoute } from '@react-navigation/native';
-import { captureScreen, captureRef } from 'react-native-view-shot';
-
+import { captureRef } from 'react-native-view-shot';
 
 import styles from "../style/StyleTelaResultado";
 
@@ -25,21 +24,21 @@ function TelaResultado({ navigation }) {
 
         setQtdNumeros(itemQtdNumeros);
         setGuardarNumeroSorteado(itemResultadoSorteio);
-        
-        
-        
+
         // marcar o dia e horário que foi feito o sorteio.
         const dataAtual = new Date();
-        
+
         const ano = dataAtual.getFullYear();
         const mes = (dataAtual.getMonth() + 1).toString().padStart(2, '0');
         const dia = dataAtual.getDate().toString().padStart(2, '0');
-        
+
         const hora = dataAtual.getHours().toString().padStart(2, '0');
         const minuto = dataAtual.getMinutes().toString().padStart(2, '0');
         const segundo = dataAtual.getSeconds().toString().padStart(2, '0');
         const dateEHorario = `Dia ${dia}/${mes}/${ano} às: ${hora}:${minuto}:${segundo}`;
-        if(itemQtdNumeros){
+
+
+        if (itemQtdNumeros) {
             setDateTime(dateEHorario);
             // enviar true e ativa tela carregando ...
             setLoading(true);
@@ -97,7 +96,6 @@ function TelaResultado({ navigation }) {
             </View>
         )
     }
-
 
     return (
         <View style={styles.containerPrincipal}  >

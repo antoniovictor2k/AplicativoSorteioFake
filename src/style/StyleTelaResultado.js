@@ -15,22 +15,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-
-    winnerElement: {
-        backgroundColor: 'yellow', // Altere para a cor desejada
-        // Outros estilos para o elemento vencedor
-      },
-
     // Inicio Container Print
     printContainer: {
         backgroundColor: "#fff",
         color: '#000',
         alignItems: "center",
         position: 'absolute',
-        top: -10000,
-        padding: 15,
         // Mova o elemento capturado para fora da tela visível
         // Estilo do conteúdo capturado com estilo diferente
+        top: -10000,
+        padding: 15,
     },
     printTitulo: {
         fontWeight: 700,
@@ -91,7 +85,6 @@ const styles = StyleSheet.create({
         marginTop: -74,
         color: '#fff',
         textAlign: 'center',
-        // alignItems:'center'
     },
     butoes: {
         marginTop: 80,
@@ -104,7 +97,6 @@ const styles = StyleSheet.create({
         width: 330,
         borderRadius: 6,
     },
-
     textLoading: {
         marginTop: 15,
         fontSize: 18,

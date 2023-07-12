@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#38B6FF',
         color: '#fff',
         flex: 1,
-        // justifyContent: 'center',
     },
     titulo: {
         marginTop: 20,
@@ -37,7 +36,6 @@ const styles = StyleSheet.create({
         fontWeight: 700,
         fontSize: 18,
         color: '#000',
-
     },
     textInput: {
         width: 330,

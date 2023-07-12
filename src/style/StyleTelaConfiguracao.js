@@ -55,9 +55,6 @@ const styles = StyleSheet.create({
         borderRadius: 6,
         marginBottom: 10,
     },
-    butoes: {
-        // marginTop: 30,
-    },
     textInput: {
         width: 330,
         height: 50,
@@ -81,12 +78,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     viewBox: {
-        // marginTop: 10,
         marginBottom: 20,
-        // marginRight: 105,
-        // justifyContent:"center",
-        // alignItems:'center',
-        // alignContent:'center'
     },
     viewCard: {
         backgroundColor: "#003150",

@@ -1,6 +1,6 @@
-import { React, useState, useEffect } from "react";
-import { TextInput, Button, Avatar, IconButton, Badge, Divider, Checkbox } from "react-native-paper";
-import { View, ScrollView, Text, Image, Linking, Alert } from "react-native";
+import { React, useState } from "react";
+import { TextInput, Button, Checkbox } from "react-native-paper";
+import { View, ScrollView, Text, Alert } from "react-native";
 
 import styles from "../style/StyleTelaConfiguracao";
 
@@ -82,8 +82,6 @@ function TelaResultado({ navigation }) {
         }
     }
 
-
-
     // limpar dados, irá alterar todos os checkBox para false e deixa null o campo escolhar numero.
 
     function limparDados() {
@@ -94,10 +92,6 @@ function TelaResultado({ navigation }) {
         setCheckboxPar(false);
         setCheckboxImpar(false);
     };
-
-
-
-
 
 
     return (
