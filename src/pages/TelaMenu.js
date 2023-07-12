@@ -14,6 +14,9 @@ import TelaContato from './TelaContato';
 import TelaResultado from './TelaResultado';
 import TelaConfiguracao from './TelaConfiguracao';
 
+// import TelaTermosDePrivacidade from './TelaPoliticaDePrivacidade';
+// import TelaTermosDeUso from './TelaTermosDeUso';
+
 
 
 
@@ -40,7 +43,7 @@ function CustomDrawerContent(props) {
         </View>
         <Divider style={styles.linhaHorizotal} />
         <DrawerItemList {...props} />
-        <Divider style={styles.linhaHorizotal2} />
+        <Divider style={styles.linhaHorizotal} />
         <View style={styles.links}>
           <Text
             style={styles.link}
@@ -51,9 +54,13 @@ function CustomDrawerContent(props) {
             Tutorial de Uso do App, Click Aqui.
           </Text>
           <Text style={styles.link}>
-            <Text style={styles.linkBold} >Termos de uso</Text>
+            <Text style={styles.linkBold} 
+            onPress={()=>{ navigation.navigate("TermosDeUso");}}
+            >Termos de uso</Text>
             {' '}e de{' '}
-            <Text style={styles.linkBold} >Privacidade</Text>
+            <Text style={styles.linkBold} 
+             onPress={()=>{ navigation.navigate("Privacidade");}}
+            >Privacidade</Text>
           </Text>
         </View>
       </View>

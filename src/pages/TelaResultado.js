@@ -14,8 +14,8 @@ function TelaResultado({ navigation }) {
     const route = useRoute();
     const { itemQtdNumeros, itemResultadoSorteio } = route.params ?? {};
 
-    const [guardarNumeroSorteado, setGuardarNumeroSorteado] = useState(null);
-    const [qtdNumeros, setQtdNumeros] = useState(1000);
+    const [guardarNumeroSorteado, setGuardarNumeroSorteado] = useState(0);
+    const [qtdNumeros, setQtdNumeros] = useState(0);
     const [loading, setLoading] = useState(false);
     const [dateTime, setDateTime] = useState(null);
 
@@ -152,7 +152,7 @@ function TelaResultado({ navigation }) {
                         style={styles.button}
                         onPress={() => { navigation.navigate('Sorteio') }}
                     >
-                        Sortear Novamente
+                        Sortear novamente
                     </Button>
                 </View>
 

@@ -38,27 +38,19 @@ function TelaSobre() {
             </Text>
             <Text style={styles.titulo}>Desenvolvedor</Text>
             <Text style={styles.text}>
-                {'   '} Antonio Victor é um programador junior especializado em JavaScript.
+                {'   '} Antonio Victor, programador junior.
                 {`
-
     `}
 
-                Com conhecimentos sólidos nessa linguagem versátil, ele está construindo uma carreira promissora no desenvolvimento de software.
-                {`
-
-    `}
-                Com habilidades em desenvolvimento web e móvel, Antonio Victor traz soluções inovadoras para o mundo da tecnologia.
-                {`
-
-    `}
-                Seu comprometimento em aprimorar suas habilidades mostra seu desejo de crescer e se destacar nessa área em constante evolução.
+Possuo conhecimentos em HTML5, CSS3, JavaScript, React, React Native, MongoDB, Node.js.
             </Text>
             <Text style={styles.titulo}>Linguagem e Programas</Text>
             <Text style={styles.text}>
-                {'   '} App criado com React Native, JavaScript e CSS para interfaces modernas e responsivas.{`
-    `}
-                Compartibilidade Android e IOS.
+                {'   '} App criado com React Native, JavaScript e CSS para interfaces modernas e responsivas.
             </Text>
+            <Text style={styles.titulo}>Compatibilidade</Text>
+            <Text style={styles.text}> - Android{`
+`} - IOS</Text>
             <Text style={styles.dev}>Dev Antonio Victor</Text>
 
         </ScrollView>

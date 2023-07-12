@@ -206,16 +206,16 @@ function TelaResultado({ navigation }) {
                     style={styles.button}
                     onPress={selectIfEscolharSorteio}
                 >
-                    Guardar dados
+                    Salvar alterações
                 </Button>
 
                 <Button
                     textColor="#003150"
-                    icon={'delete'}
+                    icon={'alpha-r-box'}
                     style={styles.button}
                     onPress={limparDados}
                 >
-                    Limpar dados
+                 Restaurar ao padrão original
                 </Button>
 
             </View>
