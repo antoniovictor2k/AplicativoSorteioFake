@@ -12,12 +12,13 @@ import styles from "../style/StyleTelaResultado";
 function TelaResultado({ navigation }) {
     const route = useRoute();
     const { itemQtdNumeros, itemResultadoSorteio } = route.params ?? {};
-    const isWinner = true;
 
     const [guardarNumeroSorteado, setGuardarNumeroSorteado] = useState(0);
     const [qtdNumeros, setQtdNumeros] = useState(0);
     const [loading, setLoading] = useState(false);
     const [dateTime, setDateTime] = useState(null);
+    const [sortearNovamente, setSortearNovamente] = useState(true);
+
 
 
     useEffect(() => {
@@ -153,7 +154,7 @@ function TelaResultado({ navigation }) {
                         textColor="#003150"
                         icon={'poker-chip'}
                         style={styles.button}
-                        onPress={() => { navigation.navigate('Sorteio') }}
+                        onPress={() => { navigation.navigate('Sorteio', {itemSortearNovamente: sortearNovamente } )}}
                     >
                         Sortear novamente
                     </Button>

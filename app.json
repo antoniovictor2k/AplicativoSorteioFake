@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#38B6FF"
+      "backgroundColor": "#003150"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -25,7 +25,7 @@
       ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#38B6FF"
+        "backgroundColor": "#003150"
       },
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-xxxxxx"

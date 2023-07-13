@@ -9,12 +9,13 @@ function TelaSorteio({ navigation }) {
     const route = useRoute();
 
     const { itemCheckboxtodos, itemCheckboxPorNumero,
-        itemCheckboxpar, itemCheckboximpar, itemNumeroEscolhido } = route.params ?? {};
+        itemCheckboxpar, itemCheckboximpar, itemNumeroEscolhido, itemSortearNovamente } = route.params ?? {};
 
     const [checkboxtodos, setCheckboxTodos] = useState(true);
     const [checkboxPorNumero, setCheckboxPorNumero] = useState(false);
     const [checkboxpar, setCheckboxPar] = useState(false);
     const [checkboximpar, setCheckboxImpar] = useState(false);
+    const [sortearNovamente, setSortearNovamente] = useState(false);
     const [numeroEscolhido, setNumeroEscolhido] = useState(null);
     const [qtdNumeros, setQtdNumeros] = useState(null);
 
@@ -28,20 +29,21 @@ function TelaSorteio({ navigation }) {
     useEffect(() => {
 
         // mesmo que não seja feita nenhum configuração ele consiga sortear no modo padrão (Todos);
-        if (itemCheckboxtodos === undefined) {
+        if (itemCheckboxtodos === undefined && sortearNovamente === false) {
             setCheckboxTodos(true);
         } else {
             setCheckboxTodos(itemCheckboxtodos);
         }
+        setSortearNovamente(itemSortearNovamente);
 
-        setCheckboxPorNumero(itemCheckboxPorNumero);
-        setCheckboxPar(itemCheckboxpar);
-        setCheckboxImpar(itemCheckboximpar);
-        setNumeroEscolhido(itemNumeroEscolhido);
+        setCheckboxTodos(itemCheckboxtodos !== undefined ? itemCheckboxtodos : checkboxtodos);
+        setCheckboxPorNumero(itemCheckboxPorNumero !== undefined ? itemCheckboxPorNumero : checkboxPorNumero);
+        setCheckboxPar(itemCheckboxpar !== undefined ? itemCheckboxpar : checkboxpar);
+        setCheckboxImpar(itemCheckboximpar !== undefined ? itemCheckboximpar : checkboximpar);
+        setNumeroEscolhido(itemNumeroEscolhido !== undefined ? itemNumeroEscolhido : numeroEscolhido);
 
     }, [itemCheckboxtodos, itemCheckboxPorNumero,
-        itemCheckboxpar, itemCheckboximpar, itemNumeroEscolhido]);
-
+        itemCheckboxpar, itemCheckboximpar, itemNumeroEscolhido, itemSortearNovamente]);
 
     function selectIfButaoSorteio() {
 
@@ -59,7 +61,7 @@ function TelaSorteio({ navigation }) {
             return;
         };
 
-        if (checkboxtodos === true || checkboxtodos == true) {
+        if (checkboxtodos === true) {
             console.log("Verificação passou Todos");
             sortearTodosNumeros();
         }
