@@ -26,6 +26,9 @@ O aplicativo está sendo desenvolvido com o intuito de proporcionar diversão e 
 <img src="/assets/adaptive-icon.png" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="50" height="50"> <img src="/assets/splash.png" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="360" height="700">
 
 
+## Vídeo do Aplicativo Funcionando
+
+[link no Youtube](https://www.youtube.com/watch?v=GfuwBPJQ2UI&ab_channel=%C3%89oAntonio).
 
 ## Instalação
 Siga as etapas abaixo para instalar o Aplicativo Transporte Acadêmico:
