@@ -16,7 +16,7 @@ O aplicativo está sendo desenvolvido com o intuito de proporcionar diversão e 
 <img src="/assets/ImgTelasApp/sorteio.jpg" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="360" height="700"> <img src="/assets/ImgTelasApp/Sobre.jpg" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="360" height="700">
 
 ## Tela Contato e Tela Menu
-<img src="/assets/ImgTelasApp/Contato.jpg" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="360" height="700"> <img src="/assets/ImgTelasApp/Menu.jpg" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="360" height="700">
+<img src="/assets/ImgTelasApp/contato.jpg" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="360" height="700"> <img src="/assets/ImgTelasApp/Menu.jpg" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="360" height="700">
 
 ## Tela Configuração e Tela Resultado
 <img src="/assets/ImgTelasApp/Configuracao.jpg" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="360" height="700"> <img src="/assets/ImgTelasApp/Resultado.jpg" alt="Tela inicial do Aplicativo Transporte Acadêmico" width="360" height="700">
