@@ -1,5 +1,5 @@
 # Aplicativo Sorteio Fake
-- Disponível para donwloand(Apk).
+- Disponível para donwload(Apk).
 
 ## Descrição
 O Aplicativo Sorteio Fake é uma solução inovadora que oferece uma experiência única aos usuários.
