@@ -30,7 +30,7 @@ O aplicativo está sendo desenvolvido com o intuito de proporcionar diversão e 
 ## Instalação
 Siga as etapas abaixo para instalar o Aplicativo Transporte Acadêmico:
 
-1. Faça o download do Apk de instalação no [link] ([https://google.com](https://expo.dev/accounts/antoniovictor/projects/AppSorteioFake/builds/dcaf759d-f3d4-405c-a7e6-2645dffd2ab3)).
+1. Faça o download do Apk de instalação no [link] ([Aqui](https://expo.dev/accounts/antoniovictor/projects/AppSorteioFake/builds/dcaf759d-f3d4-405c-a7e6-2645dffd2ab3)).
 2. Abra o arquivo de instalação em seu dispositivo.
 3. Siga as instruções na tela para concluir a instalação.
 
